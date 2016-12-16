@@ -2,6 +2,7 @@
 
 require_once 'inc/backend.php';
 require_once 'inc/frontend.php';
+require_once 'inc/login.php';
 
  
 function tm_setup()
