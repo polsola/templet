@@ -6,7 +6,6 @@ require_once 'inc/frontend.php';
  
 function tm_setup()
 {
-
 	load_theme_textdomain( 'tm', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
@@ -32,8 +31,6 @@ function tm_setup()
 		'gallery',
 		'caption',
 	) );
-
-
 }
 
 add_action( 'after_setup_theme', 'tm_setup' );
@@ -41,12 +38,11 @@ add_action( 'after_setup_theme', 'tm_setup' );
 /**
  * Enqueue scripts and styles.
  */
-function idols_scripts()
+function tm_scripts()
 {
-
 	wp_enqueue_style( 'app', get_template_directory_uri() . '/static/css/app.css' );
 
-	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Mountains+of+Christmas:700|Croissant+One|Roboto:400,700' );
+	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Roboto:400,700' );
 
 	wp_enqueue_script( 'jquery' );
    	wp_register_script( 'app', get_template_directory_uri() . '/static/scripts/app.js', array('jquery'), '1.0', true );
@@ -63,4 +59,24 @@ function idols_scripts()
 
 }
 
-add_action( 'wp_enqueue_scripts', 'idols_scripts' );
+add_action( 'wp_enqueue_scripts', 'tm_scripts' );
+
+ /**
+ * Registers a widget area.
+ * @link https://developer.wordpress.org/reference/functions/register_sidebar/
+ *
+ */
+function tm_widgets_init()
+{
+	register_sidebar( array(
+		'name'          => __( 'Sidebar', 'templet' ),
+		'id'            => 'sidebar-1',
+		'description'   => __( 'Add widgets here to appear in your sidebar.', 'templet' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h4 class="widget__title">',
+		'after_title'   => '</h4>',
+	) );
+}
+
+add_action( 'widgets_init', 'tm_widgets_init' );
