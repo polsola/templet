@@ -1,0 +1,7 @@
+.comment-form {
+	.form-submit {
+		.submit {
+			@extend .button;
+		}
+	}
+}

@@ -36,11 +36,13 @@ add_filter( 'login_headertitle', 'tm_login_logo_url_title' );
  */
 function tm_redirect_users_by_role()
 { 
-    $current_user   = wp_get_current_user();
-    $role_name      = $current_user->roles[0];
- 
-    if ( 'subscriber' === $role_name ) {
-        wp_redirect( get_bloginfo('wpurl') . '/dashboard' );
+    if ( ! defined( 'DOING_AJAX' ) ) {
+        $current_user   = wp_get_current_user();
+        $role_name      = $current_user->roles[0];
+     
+        if ( 'subscriber' === $role_name ) {
+            wp_redirect( get_bloginfo('wpurl') . '/dashboard' );
+        }
     }
 }
 
