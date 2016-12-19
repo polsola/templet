@@ -1,4 +1,13 @@
 <?php
+/**
+ * Templet: Login
+ *
+ * Functions to customize the look & feel of the login page and configure login redirections
+ *
+ * @package WordPress
+ * @subpackage Templet
+ * @since 1.0
+ */
 
 /**
  * Enqueue styles & scripts to login
@@ -35,11 +44,11 @@ add_filter( 'login_headertitle', 'tm_login_logo_url_title' );
  * @uses wp_redirect()                  Redirects the user to the specified URL
  */
 function tm_redirect_users_by_role()
-{ 
+{
     if ( ! defined( 'DOING_AJAX' ) ) {
         $current_user   = wp_get_current_user();
         $role_name      = $current_user->roles[0];
-     
+
         if ( 'subscriber' === $role_name ) {
             wp_redirect( get_bloginfo('wpurl') . '/dashboard' );
         }
@@ -51,7 +60,7 @@ function tm_redirect_users_by_role()
 /**
  * Hide admin bar depending on role
  */
-function tm_hide_admin_bar() 
+function tm_hide_admin_bar()
 {
   if ( !current_user_can('edit_posts') ) {
     show_admin_bar(false);

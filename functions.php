@@ -4,7 +4,9 @@ require_once 'inc/backend.php';
 require_once 'inc/frontend.php';
 require_once 'inc/login.php';
 
- 
+/**
+* After setup theme
+*/
 function tm_setup()
 {
 	load_theme_textdomain( 'tm', get_template_directory() . '/languages' );

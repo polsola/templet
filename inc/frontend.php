@@ -1,7 +1,18 @@
 <?php
+/**
+ * Templet: Frontend
+ *
+ * Useful frontend functions
+ *
+ * @package WordPress
+ * @subpackage Templet
+ * @since 1.0
+ */
 
 /**
 * Custom pagination
+*
+* Convert the default WordPress pagination to a foundation friendly list
 */
 function tm_pagination()
 {
@@ -39,7 +50,7 @@ class Templet_Walker_Comment extends Walker_Comment
         ?>
         <<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
             <article id="div-comment-<?php comment_ID(); ?>" class="comment-body vcard">
-                
+
                 <?php if ( 0 != $args['avatar_size'] ): ?>
                 <div class="comment__avatar">
                     <?php echo get_avatar( $comment, 96 ); ?>
@@ -47,7 +58,7 @@ class Templet_Walker_Comment extends Walker_Comment
                 <?php endif; ?>
 
                 <div class="comment__content">
-                    
+
                     <header class="comment__content__header">
                         <?php printf('<b class="fn">%s</b>', get_comment_author_link()); ?>
                         <?php if ( '0' == $comment->comment_approved ) : ?>
@@ -60,7 +71,7 @@ class Templet_Walker_Comment extends Walker_Comment
                         </a>
                         <?php edit_comment_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
                     </header>
-                    
+
                     <div class="comment__content__text"><?php comment_text(); ?></div>
 
                     <?php
@@ -84,11 +95,12 @@ class Templet_Walker_Comment extends Walker_Comment
 
 /**
 * Remove Query String from Static Resources to improve browser caching
+*
 * @var $src url to css/js resource
 */
 function tm_remove_cssjs_ver( $src )
 {
- 
+
  if( strpos( $src, '?ver=' ) || strpos( $src, '&ver=' ) )
  $src = remove_query_arg( 'ver', $src );
  return $src;
