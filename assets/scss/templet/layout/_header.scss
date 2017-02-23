@@ -1,0 +1,22 @@
+.header {
+	padding: 1rem 0;
+	position: absolute;
+	width: 100%;
+	z-index: 10;
+	&__brand {
+		display: block;
+		background: url('../images/brand--white.png') no-repeat left center/contain;
+		height: 42px;
+		text-indent: -9999px;
+	}
+	&__nav {
+		float: right;
+	}
+	&--stuck {
+		.header {
+			&__brand {
+				background-image: url('../images/brand--default.png')
+			}
+		}
+	}
+}

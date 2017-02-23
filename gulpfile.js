@@ -24,8 +24,8 @@ gulp.task('serve', ['styles'], function() {
     });
 
     gulp.watch("./assets/scss/**/*.scss", ['styles']);
-    gulp.watch("*./**/*.php").on('change', browserSync.reload);
-    gulp.watch("*./assets/js/**/*.js", ['scripts']);
+    gulp.watch("./**/*.php").on('change', browserSync.reload);
+    gulp.watch("./assets/scripts/**/*.js", ['scripts']);
 });
 
 // Compile scss into CSS & auto-inject into browsers
@@ -40,12 +40,13 @@ gulp.task('styles', function() {
             cascade: false
         }))
         .pipe(gulp.dest("./static/css"))
+        .pipe(browserSync.stream())
         .pipe(cleanCSS())
         .pipe(rename({
             suffix: ".min",
         }))
-        .pipe(gulp.dest("./static/css"))
-        .pipe(browserSync.stream());
+        .pipe(gulp.dest("./static/css"));
+        
 });
 
 // Concat & uglify scripts
@@ -54,12 +55,13 @@ gulp.task('scripts', function() {
         .pipe(plumber())
         .pipe(concat('app.js'))
         .pipe(gulp.dest('./static/scripts'))
+        .pipe(browserSync.stream())
         .pipe(uglify())
         .pipe(rename({
             suffix: ".min",
         }))
-        .pipe(gulp.dest("./static/scripts"))
-        .pipe(browserSync.stream());
+        .pipe(gulp.dest("./static/scripts"));
+        
 });
 
 

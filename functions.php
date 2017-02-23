@@ -1,8 +1,12 @@
 <?php
 
+define('TM_THEME', get_stylesheet_directory_uri());
+define('TM_STATIC', TM_THEME . '/static');
+
 require_once 'inc/backend.php';
 require_once 'inc/frontend.php';
 require_once 'inc/login.php';
+require_once 'inc/page-header.php';
 
 /**
 * After setup theme
@@ -37,32 +41,6 @@ function tm_setup()
 }
 
 add_action( 'after_setup_theme', 'tm_setup' );
-
-/**
- * Enqueue scripts and styles.
- */
-function tm_scripts()
-{
-	wp_enqueue_style( 'app', get_template_directory_uri() . '/static/css/app.css' );
-
-	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Roboto:400,700' );
-
-	wp_enqueue_script( 'jquery' );
-   	wp_register_script( 'app', get_template_directory_uri() . '/static/scripts/app.js', array('jquery'), '1.0', true );
-	$variables_array = array(
-    	'site_url' => get_bloginfo('wpurl')
-    );
-    wp_localize_script( 'app', 'wp_vars', $variables_array );
-    wp_enqueue_script( 'app' );
-
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-
-}
-
-add_action( 'wp_enqueue_scripts', 'tm_scripts' );
 
  /**
  * Registers a widget area.

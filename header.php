@@ -51,18 +51,19 @@
 						<div class="large-9 columns show-for-large">
 							<!-- Header nav -->
 							<nav class="header__nav">
-                <?php
-                wp_nav_menu( array(
-                    'sort_column'     => 'menu_order',
-                    'container'       => false,
-                    'menu_class'      => 'menu',
-                    'theme_location'  => 'primary',
-                    'items_wrap'      => '<ul id="%1$s" class="%2$s" data-dropdown>%3$s</ul>'
-                    )
-                );
-                ?>
+				                <?php
+				                wp_nav_menu( array(
+				                    'sort_column'     => 'menu_order',
+				                    'container'       => false,
+				                    'menu_class'      => 'menu',
+				                    'theme_location'  => 'primary',
+				                    'items_wrap'      => '<ul id="%1$s" class="%2$s" data-dropdown>%3$s</ul>'
+				                    )
+				                );
+				                ?>
 							</nav>
 						</div>
 					</div>
 				</header>
 				<main>
+					<?php tm_page_header(); ?>

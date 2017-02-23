@@ -1,0 +1,27 @@
+.page-header {
+	position: relative;
+	height: 200px;
+	overflow: hidden;
+	background-color: #444;
+	&__content {
+		position: absolute;
+		top: 50%;
+		width: 100%;
+		transform: translateY(-50%);
+		text-align: center;
+		padding: 0 1rem;
+		z-index: 1;
+		color:#fff;
+	}
+	&__bg {
+		position: absolute;
+		top: 50%;
+		width: 100%;
+		transform: translateY(-50%);
+		height: 100%;
+		opacity: .4;
+	}
+	@include breakpoint(large) {
+		height: 300px;
+	}
+}
