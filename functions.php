@@ -3,10 +3,27 @@
 define('TM_THEME', get_stylesheet_directory_uri());
 define('TM_STATIC', TM_THEME . '/static');
 
-require_once 'inc/backend.php';
-require_once 'inc/frontend.php';
-require_once 'inc/login.php';
-require_once 'inc/page-header.php';
+/**
+* Theme init 
+*/
+function tm_init()
+{
+    
+	require_once 'inc/login.php';
+	require_once 'inc/page-header.php';
+	require_once 'inc/post.php';
+	require_once 'inc/foundation-nav-walker.php';
+    
+    if (is_admin())
+    {
+        require_once 'inc/backend.php';
+    }
+    else
+    {
+        require_once 'inc/frontend.php';
+    }
+}
+add_action('init', 'tm_init');
 
 /**
 * After setup theme

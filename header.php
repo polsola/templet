@@ -57,7 +57,8 @@
 				                    'container'       => false,
 				                    'menu_class'      => 'menu',
 				                    'theme_location'  => 'primary',
-				                    'items_wrap'      => '<ul id="%1$s" class="%2$s" data-dropdown>%3$s</ul>'
+				                    'items_wrap'      => '<ul id="%1$s" class="%2$s" data-dropdown>%3$s</ul>',
+				                    'walker'		  => new foundation_nav_walker()
 				                    )
 				                );
 				                ?>

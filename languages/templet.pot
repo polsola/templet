@@ -1,0 +1,70 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2017-02-27 17:41+0100\n"
+"PO-Revision-Date: 2017-02-20 17:26+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _e;__;_x\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
+
+#: comments.php:59
+msgid "Name"
+msgstr ""
+
+#: comments.php:65
+msgid "Email"
+msgstr ""
+
+#: comments.php:71
+msgid "Website"
+msgstr ""
+
+#: footer.php:21
+msgid "All rights reserved"
+msgstr ""
+
+#: functions.php:68
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:70
+msgid "Add widgets here to appear in your sidebar."
+msgstr ""
+
+#: inc/frontend.php:90
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: inc/frontend.php:94
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: inc/frontend.php:97
+msgid "Edit"
+msgstr ""
+
+#: index.php:22
+msgid "Read more"
+msgstr ""
+
+#: single.php:32
+msgid "Tags"
+msgstr ""
+
+#: single.php:37
+msgid "Comments"
+msgstr ""
+
+#~ msgid "Have a project? Get in touch with us"
+#~ msgstr "¿Tienes un proyecto? Ponte en contacto con nosotros"

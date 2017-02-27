@@ -17,7 +17,7 @@ get_header(); ?>
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 			<article <?php post_class(); ?>>
 				<span><?php the_date(); ?></span>
-				<h1><?php the_title(); ?></h1>
+				<h2><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 				<?php the_excerpt(); ?>
 				<a class="button small" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php _e('Read more', 'tm'); ?></a>
 			</article>

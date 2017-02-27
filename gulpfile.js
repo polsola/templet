@@ -20,7 +20,8 @@ var scriptsToConcat = [
 gulp.task('serve', ['styles'], function() {
 
     browserSync.init({
-        proxy: url
+        proxy: url,
+        browser: false
     });
 
     gulp.watch("./assets/scss/**/*.scss", ['styles']);

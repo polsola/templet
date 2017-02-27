@@ -133,3 +133,39 @@ function tm_remove_cssjs_ver( $src )
 }
 add_filter( 'style_loader_src', 'tm_remove_cssjs_ver', 10, 2 );
 add_filter( 'script_loader_src', 'tm_remove_cssjs_ver', 10, 2 );
+
+/**
+* Add item to main nav
+* Hook to menus and add items with diferent layouts, for example a cta button 
+* @link https://developer.wordpress.org/reference/hooks/wp_nav_menu_items/
+*/
+function tm_append_nav_menu_items($items, $args) {
+
+  $menu = 'primary';
+
+  if( $args->theme_location == $menu ){
+        
+    $button = '<li class="header__nav__item--cta"><a class="button" href="#">' . __('Contact us', 'tm') . '</a></li>';
+    $items .= $button;
+
+  }
+  return $items;
+}
+add_filter( 'wp_nav_menu_items', 'tm_append_nav_menu_items', 10, 2 );
+
+/**
+* Include favicon, apple-touch icon and manifest to wp_head
+* Generate your assets with http://realfavicongenerator.net/
+*/
+function tm_favicon_head()
+{
+    ?>
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo TM_STATIC; ?>/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="<?php echo TM_STATIC; ?>/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="<?php echo TM_STATIC; ?>/images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="<?php echo TM_STATIC; ?>/images/manifest.json">
+    <link rel="mask-icon" href="<?php echo TM_STATIC; ?>/images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <?php
+}
+add_action( 'wp_head', 'tm_favicon_head');
