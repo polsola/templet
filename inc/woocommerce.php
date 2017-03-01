@@ -47,10 +47,19 @@ add_action( 'woocommerce_sidebar', 'tm_woocommerce_after_sidebar');
 /**
  * Change number or products per row to 3
  */
-
 if (!function_exists('loop_columns')) {
 	function loop_columns() {
 		return 3; // 3 products per row
 	}
 }
 add_filter('loop_shop_columns', 'loop_columns');
+
+/**
+ * Change number and rows of related products
+ */
+function tm_related_products_args( $args ) {
+	$args['posts_per_page'] = 3;
+	$args['columns'] = 3;
+	return $args;
+}
+add_filter( 'woocommerce_output_related_products_args', 'tm_related_products_args' );

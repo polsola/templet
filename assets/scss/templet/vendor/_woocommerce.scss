@@ -17,6 +17,11 @@ $tm-products-row-margin: 3.8%;
 		list-style: none;
 		margin: 0;
 		padding: 0;
+		&:after {
+			content:"";
+			display: block;
+			clear: both;
+		}
 		li.product {
 		    float: left;
 		    margin: 0 0 1rem;
@@ -67,6 +72,40 @@ $tm-products-row-margin: 3.8%;
 			    	margin-right: 0;
 			    }
 		    }
+		}
+	}
+
+	.col2-set {
+		@extend .row;
+		.col-1, .col-2 {
+			@extend .large-6;
+			@extend .columns;
+		}
+	}
+}
+
+.woocommerce-message {
+	@extend .callout;
+	@extend .success;
+	.wc-forward {
+		@extend .success;
+		@extend .small;
+		position: absolute;
+		top: .75rem;
+		right: .75rem;
+	}
+}
+
+.woocommerce-info {
+	@extend .callout;
+	@extend .primary;
+}
+.woocommerce-pagination {
+	text-align: center;
+	.page-numbers {
+		@extend .pagination;
+		span {
+			display: block;
 		}
 	}
 }
