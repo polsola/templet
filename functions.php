@@ -87,3 +87,10 @@ function tm_widgets_init() {
 
 }
 add_action( 'widgets_init', 'tm_widgets_init' );
+
+/**
+ * WooCommerce file
+ *
+ * @link https://docs.woocommerce.com/document/third-party-custom-theme-compatibility/
+ */
+require_once 'inc/woocommerce.php';

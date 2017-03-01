@@ -73,5 +73,6 @@
 							</div>
 						</div>
 					</header>
+					<?php tm_page_header(); ?>
 					<main>
-						<?php tm_page_header(); ?>
+						

@@ -1,4 +1,4 @@
-var project     = 'templet', // Project name, used for build zip.
+var project     = 'templet', 
     url         = 'templet.dev';
 
 var gulp        = require('gulp');

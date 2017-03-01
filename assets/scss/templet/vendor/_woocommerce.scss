@@ -1,0 +1,72 @@
+$tm-products-row: 3;
+$tm-products-row-margin: 3.8%;
+
+@function tm-product-row($row, $margin){
+  //@return (100-$margin*($row - 1))/$row;
+  @return (100% - $margin*($row - 1))/$row;
+}
+
+//$tm-products-row : (100 - $tm-products-row-margin*($tm-products-row - 1))/$tm-products-row;
+
+.woocommerce, .woocommerce-page {
+	main {
+		@extend .section;
+	}
+	ul.products {
+		display: block;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		li.product {
+		    float: left;
+		    margin: 0 0 1rem;
+		    padding: 0;
+		    position: relative;
+		    width: 100%;
+		    .woocommerce-LoopProduct-link {
+		    	display: block;
+		    }
+		    
+		    .onsale {
+		    	position: absolute;
+		    	top: 1rem;
+		    	left: 0;
+		    }
+		    img {
+		    	margin-bottom: 1rem;
+		    	display: block;
+		    	width: 100%;
+		    }
+		    h3 {
+		    	font-size: 1.4rem;
+		    }
+		    .add_to_cart_button {
+		    	display: block;
+		    	width: 100%;
+		    	margin-top: 1rem;
+		    }
+		    .added_to_cart {
+		    	@extend .button;
+		    	@extend .success;
+		    	@extend .expanded;
+		    	position: absolute;
+		    	bottom: 0;
+		    	left: 0;
+		    }
+		    @include breakpoint(medium only) {
+				width: tm-product-row(2, $tm-products-row-margin);
+				margin-right: $tm-products-row-margin;
+				&:nth-child(2n) {
+					margin-right: 0;
+				}
+		    }
+		    @include breakpoint(large) {
+		    	width: tm-product-row($tm-products-row, $tm-products-row-margin);
+		    	margin-right: $tm-products-row-margin;
+		    	&.last {
+			    	margin-right: 0;
+			    }
+		    }
+		}
+	}
+}
