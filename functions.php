@@ -12,6 +12,7 @@ function tm_init()
 	require_once 'inc/login.php';
 	require_once 'inc/page-header.php';
 	require_once 'inc/post.php';
+	require_once 'inc/vendor.php';
 	require_once 'inc/foundation-nav-walker.php';
     
     if (is_admin())
@@ -56,7 +57,6 @@ function tm_setup()
 		'caption',
 	) );
 }
-
 add_action( 'after_setup_theme', 'tm_setup' );
 
 /**

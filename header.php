@@ -24,23 +24,23 @@
 	<body <?php body_class(); ?>>
 		<div class="off-canvas-wrapper">
 		    <div class="off-canvas position-left" id="off-canvas" data-off-canvas>
-					<!-- Close button -->
+				<!-- Close button -->
 			    <button class="close-button" aria-label="Close menu" type="button" data-close>
 			      <span aria-hidden="true">&times;</span>
 			    </button>
-					<!-- Header nav -->
-					<nav class="off-canvas__nav">
-						<?php
-						wp_nav_menu( array(
-							'sort_column'     => 'menu_order',
-							'container'       => false,
-							'menu_class'      => 'menu vertical',
-							'theme_location'  => 'primary',
-							'items_wrap'      => '<ul id="%1$s" class="%2$s" data-drilldown>%3$s</ul>'
-							)
-						);
-						?>
-					</nav>
+				<!-- Header nav -->
+				<nav class="off-canvas__nav">
+					<?php
+					wp_nav_menu( array(
+						'sort_column'     => 'menu_order',
+						'container'       => false,
+						'menu_class'      => 'menu vertical',
+						'theme_location'  => 'primary',
+						'items_wrap'      => '<ul id="%1$s" class="%2$s" data-drilldown>%3$s</ul>'
+						)
+					);
+					?>
+				</nav>
 		    </div>
 		    <div class="off-canvas-content" data-off-canvas-content>
 					<header id="header" class="header">

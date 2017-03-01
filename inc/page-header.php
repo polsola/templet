@@ -1,9 +1,19 @@
 <?php
+/**
+ * Templet: Page Header
+ *
+ * Functions related to the frontend page header module
+ *
+ * @package WordPress
+ * @subpackage Templet
+ * @since 1.0
+ */
 
 /**
  * Build & render page header
  */
-function tm_page_header() {
+function tm_page_header() 
+{
 	?>
 	<section class="page-header">
 		<div class="page-header__content">
@@ -20,7 +30,8 @@ function tm_page_header() {
 /**
  * Get page title depending on current page
  */
-function tm_get_page_title() {
+function tm_get_page_title() 
+{
 
 	$title = '';
 	global $post;
@@ -63,7 +74,8 @@ function tm_get_page_title() {
 /**
  * Just echo 'tm_get_page_title' function
  */
-function tm_page_title() {
+function tm_page_title() 
+{
 	echo tm_get_page_title();
 }
 

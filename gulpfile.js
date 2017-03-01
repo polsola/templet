@@ -21,7 +21,7 @@ gulp.task('serve', ['styles'], function() {
 
     browserSync.init({
         proxy: url,
-        browser: false
+        open: false
     });
 
     gulp.watch("./assets/scss/**/*.scss", ['styles']);

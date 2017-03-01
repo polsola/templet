@@ -1,10 +1,19 @@
 <?php
+/**
+ * Templet: Login
+ *
+ * Functions for the frontend share module
+ *
+ * @package WordPress
+ * @subpackage Templet
+ * @since 1.0
+ */
 
 /**  
-* Share buttons url generator
-*
-**/
-function tm_share( $type, $url, $text='') {
+ * Share buttons url generator
+ */
+function tm_share( $type, $url, $text='')
+{
     switch ($type) {
         case 'twitter':
             $share_url = 'https://twitter.com/intent/tweet?';
@@ -43,13 +52,12 @@ function tm_share( $type, $url, $text='') {
 }
 
 /**  
-* Share buttons url generator
-*
-**/
-function tm_add_share_footer() {
+ * Share buttons url generator
+ */
+function tm_add_share_footer()
+{
     if( is_single() ): 
         get_template_part('template-parts/share'); 
     endif; 
 }
-
 add_action('wp_footer', 'tm_add_share_footer');

@@ -13,6 +13,7 @@
 get_header(); ?>
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
 <main class="section">
 	<div class="row large-8 large-offset-2 columns">
 		<article <?php post_class(); ?>>

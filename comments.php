@@ -56,21 +56,21 @@ if ( post_password_required() || (!comments_open() && get_comments_number()))
     $fields =  array(
 
       'author' =>
-        '<div class="row"><div class="medium-6 columns"><p class="comment-form-author"><label for="author">' . __( 'Name', 'wayo' ) . 
+        '<div class="row"><div class="medium-4 columns"><p class="comment-form-author"><label for="author">' . __( 'Name', 'wayo' ) . 
         ( $req ? '<span class="required">*</span>' : '' ) .
-        '</label><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
-        '" size="30"' . $aria_req . ' /></p></div>',
+        '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+        '" size="30"' . $aria_req . ' /></label></p></div>',
 
       'email' =>
-        '<div class="medium-6 columns"><p class="comment-form-email"><label for="email">' . __( 'Email', 'wayo' ) . 
+        '<div class="medium-4 columns"><p class="comment-form-email"><label for="email">' . __( 'Email', 'wayo' ) . 
         ( $req ? '<span class="required">*</span>' : '' ) .
-        '</label><input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
-        '" size="30"' . $aria_req . ' /></p></div></div>',
+        '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+        '" size="30"' . $aria_req . ' /></label></p></div>',
 
       'url' =>
-        '<p class="comment-form-url"><label for="url">' . __( 'Website', 'domainreference' ) . '</label>' .
+        '<div class="medium-4 columns"><p class="comment-form-url"><label for="url">' . __( 'Website', 'domainreference' ) .
         '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .
-        '" size="30" /></p>'
+        '" size="30" /></label></p></div></div>'
     );
 
     comment_form(array(
