@@ -14,12 +14,8 @@ get_header(); ?>
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <main class="section">
-	<div class="row small-12 columns">
+	<div class="row large-8 large-offset-2 columns">
 		<article <?php post_class(); ?>>
-			<h1><?php the_title(); ?></h1>
-
-			<?php the_category(); ?>
-			<?php the_date(); ?>
 			
 			<div class="post__thumbnail"> 
 				<?php the_post_thumbnail( array(1100, 420) ); ?>
@@ -27,12 +23,12 @@ get_header(); ?>
 			
 			<?php the_content(); ?>
 			<footer class="entry-footer">
-                <p><?php the_tags( __('Tags', 'templet').': ' , ', ' ); ?></p>
+                <p><?php the_tags( __('Tags', 'tm').': ' , ', ' ); ?></p>
             </footer>
 			<?php if ( comments_open() || get_comments_number() ) {  ?>
                 <div class="entry-comments">
                     <?php if( get_comments_number() != 0 ): ?>
-                        <h3><?php _e('Comments', 'templet'); ?></h3>
+                        <h3><?php _e('Comments', 'tm'); ?></h3>
                     <?php endif; ?>
                     <?php comments_template(); ?>
                 </div>

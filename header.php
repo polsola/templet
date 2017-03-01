@@ -43,9 +43,16 @@
 					</nav>
 		    </div>
 		    <div class="off-canvas-content" data-off-canvas-content>
-					<header class="header">
+					<header id="header" class="header">
 						<div class="row">
-							<div class="large-3 columns">
+							<div class="small-3 columns hide-for-large">
+								<a data-toggle="off-canvas" class="header__toggle">
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</a>
+							</div>
+							<div class="small-6 large-3 columns">
 								<a href="<?php bloginfo('wpurl'); ?>" title="<?php bloginfo('title'); ?>" class="header__brand"><?php bloginfo('title'); ?></a>
 							</div>
 							<div class="large-9 columns show-for-large">

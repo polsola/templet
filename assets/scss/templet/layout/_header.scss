@@ -3,16 +3,31 @@
 	position: absolute;
 	width: 100%;
 	z-index: 10;
+	transition: background-color .25s;
 	&__brand {
 		display: block;
 		background: url('../images/brand--white.png') no-repeat left center/contain;
 		height: 42px;
 		text-indent: -9999px;
 	}
+	&__toggle {
+		display: block;
+		width: 32px;
+		.icon-bar {
+			border-top: 3px solid $primary-color;
+			display: block;
+			margin-top: .6rem;
+			&:first-child {
+				margin-top: .4rem;
+			}
+		}
+	}
 	&__nav {
 		float: right;
 	}
 	&--stuck {
+		background-color: $white;
+		position: fixed;
 		.header {
 			&__brand {
 				background-image: url('../images/brand--default.png')

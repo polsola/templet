@@ -1,0 +1,16 @@
+.section {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	@include breakpoint(medium) {
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+	}
+}
+
+// CSS classes for editor images
+img.alignright {float:right; margin:0 0 1em 1em}
+img.alignleft {float:left; margin:0 1em 1em 0}
+img.aligncenter {display: block; margin-left: auto; margin-right: auto}
+a img.alignright {float:right; margin:0 0 1em 1em}
+a img.alignleft {float:left; margin:0 1em 1em 0}
+a img.aligncenter {display: block; margin-left: auto; margin-right: auto}

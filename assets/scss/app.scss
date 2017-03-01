@@ -9,11 +9,14 @@
 @import 'templet/layout/footer';
 @import 'templet/layout/type';
 @import 'templet/layout/page-header';
+@import 'templet/layout/off-canvas';
+@import 'templet/layout/single';
 
 @import 'templet/module/loop';
 @import 'templet/module/section';
 @import 'templet/module/comments';
 @import 'templet/module/share';
 @import 'templet/module/widget';
+@import 'templet/module/type';
 
 @import 'templet/vendor/font-awesome';
