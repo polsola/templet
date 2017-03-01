@@ -12,7 +12,7 @@ var uglify      = require('gulp-uglify');
 var concat      = require('gulp-concat');
 
 var scriptsToConcat = [
-    "node_modules/foundation-sites/dist/foundation.js",
+    "node_modules/foundation-sites/dist/js/foundation.js",
     "assets/scripts/app.js"
 ]
 

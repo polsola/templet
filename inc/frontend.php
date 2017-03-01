@@ -169,3 +169,17 @@ function tm_favicon_head()
     <?php
 }
 add_action( 'wp_head', 'tm_favicon_head');
+
+/**
+* Similar to the_post_thumbnail but using the interchange library from foundation-sites
+* @link http://foundation.zurb.com/sites/docs/interchange.html
+*/
+function tm_the_post_thumbnail( $small_size = array(960, 450) ) 
+{
+    global $post;
+    if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it. ?>
+        <img data-interchange="[<?php echo the_post_thumbnail_url( $small_size ); ?>, small], [<?php echo the_post_thumbnail_url( array( $small_size[0]*2, $small_size[1]*2 ) ); ?>, retina]" alt="<?php the_title(); ?>">
+    <?php }
+}
+
+require_once 'share/share.php';

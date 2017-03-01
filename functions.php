@@ -59,22 +59,31 @@ function tm_setup()
 
 add_action( 'after_setup_theme', 'tm_setup' );
 
- /**
- * Registers a widget area.
- * @link https://developer.wordpress.org/reference/functions/register_sidebar/
+/**
+ * Register widget area.
  *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function tm_widgets_init()
-{
+function tm_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'templet' ),
-		'id'            => 'sidebar-1',
-		'description'   => __( 'Add widgets here to appear in your sidebar.', 'templet' ),
+		'name'          => __( 'Sidebar', 'tm' ),
+		'id'            => 'sidebar-blog',
+		'description'   => __( 'Add widgets here to appear in your sidebar.', 'tm' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h4 class="widget__title">',
-		'after_title'   => '</h4>',
+		'before_title'  => '<h5 class="widget__title">',
+		'after_title'   => '</h5>',
 	) );
-}
 
+	register_sidebars(4, array(
+		'name'          => __( 'Footer %d', 'tm' ),
+		'id'            => 'sidebar-footer',
+		'description'   => __( 'Add widgets here to appear in your footer.', 'tm' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h5 class="widget__title">',
+		'after_title'   => '</h5>',
+	) );
+
+}
 add_action( 'widgets_init', 'tm_widgets_init' );

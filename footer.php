@@ -15,10 +15,19 @@
 ?>
 				</main>
 				<footer class="footer">
+					<div class="footer__widgets">
+						<div class="row">
+							<?php for($i = 1; $i<=4; $i++): ?>
+								<div class="large-3 columns">
+									<?php dynamic_sidebar( 'Footer ' . $i ); ?>
+								</div>
+							<?php endfor; ?>
+						</div>
+					</div>
 					<div class="footer__credits">
 						<div class="row">
 							<div class="medium-6 columns">
-								© <?php echo date('Y'); ?> <?php _e('All rights reserved', 'templet'); ?>
+								<p class="footer__credits__text">© <?php echo date('Y'); ?> <?php _e('All rights reserved', 'templet'); ?></p>
 							</div>
 							<div class="medium-6 columns">
 								<nav class="footer__credits__nav">

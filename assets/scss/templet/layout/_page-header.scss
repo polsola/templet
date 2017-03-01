@@ -2,7 +2,7 @@
 	position: relative;
 	height: 200px;
 	overflow: hidden;
-	background-color: #444;
+	background-color: $dark-gray;
 	&__content {
 		position: absolute;
 		top: 50%;
@@ -11,7 +11,7 @@
 		text-align: center;
 		padding: 0 1rem;
 		z-index: 1;
-		color:#fff;
+		color: $white;
 	}
 	&__bg {
 		position: absolute;

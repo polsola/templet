@@ -6,9 +6,14 @@
 @include motion-ui-transitions;
 
 @import 'templet/layout/header';
+@import 'templet/layout/footer';
 @import 'templet/layout/type';
 @import 'templet/layout/page-header';
 
 @import 'templet/module/loop';
 @import 'templet/module/section';
 @import 'templet/module/comments';
+@import 'templet/module/share';
+@import 'templet/module/widget';
+
+@import 'templet/vendor/font-awesome';
