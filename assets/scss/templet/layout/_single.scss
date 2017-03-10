@@ -7,4 +7,11 @@
 			}
 		}
 	}
+	&__footer {
+		&__tags {
+			a[rel="tag"] {
+				@extend .label;
+			}
+		}
+	}
 }

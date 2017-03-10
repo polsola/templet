@@ -20,6 +20,8 @@
 		transform: translateY(-50%);
 		height: 100%;
 		opacity: .4;
+		background-position: center;
+		background-position: cover;
 	}
 	@include breakpoint(large) {
 		height: 400px;

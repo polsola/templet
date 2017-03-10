@@ -50,7 +50,7 @@ function tm_redirect_users_by_role()
         $role_name      = $current_user->roles[0];
 
         if ( 'subscriber' === $role_name ) {
-            wp_redirect( get_bloginfo('wpurl') . '/dashboard' );
+            wp_redirect( site_url() . '/dashboard' );
         }
     }
 }

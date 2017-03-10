@@ -1,6 +1,6 @@
 <?php
 /**
- * Templet: Login
+ * Templet: Share
  *
  * Functions for the frontend share module
  *
@@ -52,7 +52,7 @@ function tm_share( $type, $url, $text='')
 }
 
 /**  
- * Share buttons url generator
+ * Add share buttons to wp_footer for single pages
  */
 function tm_add_share_footer()
 {

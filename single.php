@@ -18,18 +18,18 @@ get_header(); ?>
 	<div class="row large-8 large-offset-2 columns">
 		<article <?php post_class(); ?>>
 			
-			<div class="post__thumbnail"> 
+			<div class="single__thumbnail"> 
 				<?php the_post_thumbnail( array(1100, 420) ); ?>
 			</div>
 			
 			<?php the_content(); ?>
-			<footer class="entry-footer">
-                <p><?php the_tags( __('Tags', 'tm').': ' , ', ' ); ?></p>
+			<footer class="single__footer">
+                <p class="single__footer__tags"><?php the_tags( __('Tags', 'templet').': ' , ' ' ); ?></p>
             </footer>
 			<?php if ( comments_open() || get_comments_number() ) {  ?>
-                <div class="entry-comments">
+                <div class="single__comments">
                     <?php if( get_comments_number() != 0 ): ?>
-                        <h3><?php _e('Comments', 'tm'); ?></h3>
+                        <h3><?php _e('Comments', 'templet'); ?></h3>
                     <?php endif; ?>
                     <?php comments_template(); ?>
                 </div>

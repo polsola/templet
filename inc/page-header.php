@@ -55,7 +55,7 @@ function tm_get_page_title()
     }
 
     if ( is_search() ) {
-        $title = sprintf( __( 'Search Results for &#8220;%s&#8221;' ), get_search_query() );
+        $title = sprintf( __( 'Search Results for &#8220;%s&#8221;', 'templet' ), get_search_query() );
     }
 
     if( is_home() ) {

@@ -6,9 +6,12 @@
 	transition: background-color .25s;
 	&__brand {
 		display: block;
-		background: url('../images/brand--white.png') no-repeat left center/contain;
+		background: url('../images/brand--white.png') no-repeat center/contain;
 		height: 42px;
 		text-indent: -9999px;
+		@include breakpoint(large) {
+			background-position: left center;
+		}
 	}
 	&__toggle {
 		display: block;
@@ -24,13 +27,44 @@
 	}
 	&__nav {
 		float: right;
+		.menu {
+			&__item {
+				position: relative;
+				&--active {
+					&:after {
+						content:'';
+						width: 100%;
+						position: absolute;
+						bottom: -3px;
+						left: 0;
+						width: 100%;
+						height: 3px;
+						background-color: $primary-color;
+					}
+					
+				}
+				a {
+					color: $header-nav-color;
+				}
+			}
+		}
 	}
 	&--stuck {
-		background-color: $white;
+		background-color: $header-stuck-color;
 		position: fixed;
+		box-shadow: 0 3px 4px rgba($black, .15);
 		.header {
 			&__brand {
 				background-image: url('../images/brand--default.png')
+			}
+			&__nav {
+				.menu {
+					&__item {
+						a {
+							color: $header-stuck-nav-color;
+						}
+					}
+				}
 			}
 		}
 	}

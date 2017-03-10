@@ -53,7 +53,7 @@
 								</a>
 							</div>
 							<div class="small-6 large-3 columns">
-								<a href="<?php bloginfo('wpurl'); ?>" title="<?php bloginfo('title'); ?>" class="header__brand"><?php bloginfo('title'); ?></a>
+								<a href="<?php echo esc_url( site_url() ); ?>" title="<?php bloginfo('title'); ?>" class="header__brand"><?php bloginfo('title'); ?></a>
 							</div>
 							<div class="large-9 columns show-for-large">
 								<!-- Header nav -->

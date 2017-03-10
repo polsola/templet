@@ -29,10 +29,10 @@ if ( post_password_required() || (!comments_open() && get_comments_number()))
     <ol class="comment-list">
         <?php
         wp_list_comments(array(
-            'style'       => 'ol',
-            'short_ping'  => true,
-            'avatar_size' => 0,
-            'format'      => 'html5',
+            'style'         => 'ol',
+            'short_ping'    => true,
+            'avatar_size'   => 0,
+            'format'        => 'html5',
             'walker'        => new Templet_Walker_Comment
         ));
         ?>
@@ -56,19 +56,19 @@ if ( post_password_required() || (!comments_open() && get_comments_number()))
     $fields =  array(
 
       'author' =>
-        '<div class="row"><div class="medium-4 columns"><p class="comment-form-author"><label for="author">' . __( 'Name', 'wayo' ) . 
+        '<div class="row"><div class="medium-4 columns"><p class="comment-form-author"><label for="author">' . __( 'Name', 'templet' ) . 
         ( $req ? '<span class="required">*</span>' : '' ) .
         '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
         '" size="30"' . $aria_req . ' /></label></p></div>',
 
       'email' =>
-        '<div class="medium-4 columns"><p class="comment-form-email"><label for="email">' . __( 'Email', 'wayo' ) . 
+        '<div class="medium-4 columns"><p class="comment-form-email"><label for="email">' . __( 'Email', 'templet' ) . 
         ( $req ? '<span class="required">*</span>' : '' ) .
         '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
         '" size="30"' . $aria_req . ' /></label></p></div>',
 
       'url' =>
-        '<div class="medium-4 columns"><p class="comment-form-url"><label for="url">' . __( 'Website', 'domainreference' ) .
+        '<div class="medium-4 columns"><p class="comment-form-url"><label for="url">' . __( 'Website', 'templet' ) .
         '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .
         '" size="30" /></label></p></div></div>'
     );

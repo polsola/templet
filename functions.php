@@ -31,7 +31,7 @@ add_action('init', 'tm_init');
 */
 function tm_setup()
 {
-	load_theme_textdomain( 'tm', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'templet', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -44,8 +44,8 @@ function tm_setup()
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' 	=> esc_html__( 'Primary', 'tm' ),
-		'footer' 	=> esc_html__( 'Footer', 'tm' ),
+		'primary' 	=> esc_html__( 'Primary', 'templet' ),
+		'footer' 	=> esc_html__( 'Footer', 'templet' ),
 	) );
 
 
@@ -66,9 +66,9 @@ add_action( 'after_setup_theme', 'tm_setup' );
  */
 function tm_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'tm' ),
+		'name'          => __( 'Sidebar', 'templet' ),
 		'id'            => 'sidebar-blog',
-		'description'   => __( 'Add widgets here to appear in your sidebar.', 'tm' ),
+		'description'   => __( 'Add widgets here to appear in your sidebar.', 'templet' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h5 class="widget__title">',
@@ -76,9 +76,9 @@ function tm_widgets_init() {
 	) );
 
 	register_sidebars(4, array(
-		'name'          => __( 'Footer %d', 'tm' ),
+		'name'          => __( 'Footer %d', 'templet' ),
 		'id'            => 'sidebar-footer',
-		'description'   => __( 'Add widgets here to appear in your footer.', 'tm' ),
+		'description'   => __( 'Add widgets here to appear in your footer.', 'templet' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h5 class="widget__title">',
@@ -87,6 +87,15 @@ function tm_widgets_init() {
 
 }
 add_action( 'widgets_init', 'tm_widgets_init' );
+
+/**
+ * Set default Content Width
+ *
+ * @link https://codex.wordpress.org/Content_Width
+ */
+if ( ! isset( $content_width ) ) {
+	$content_width = 960;
+}
 
 /**
  * WooCommerce file

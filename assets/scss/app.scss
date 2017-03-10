@@ -5,6 +5,8 @@
 @include foundation-everything();
 @include motion-ui-transitions;
 
+@import 'templet/variables';
+
 @import 'templet/layout/header';
 @import 'templet/layout/footer';
 @import 'templet/layout/type';

@@ -33,7 +33,7 @@ gulp.task('serve', ['styles'], function() {
 gulp.task('styles', function() {
     return gulp.src("./assets/scss/**/*.scss")
 		.pipe(plumber())
-        .pipe(sass({
+        .pipe(sass.sync({
         	includePaths: ["node_modules/foundation-sites/scss", 'node_modules/motion-ui/src'] 
         }))
         .pipe(autoprefixer({
