@@ -1,8 +1,8 @@
 .page-header {
 	position: relative;
-	height: 320px;
+	height: $page-header-height;
 	overflow: hidden;
-	background-color: $dark-gray;
+	background-color: $page-header-bg;
 	&__content {
 		position: absolute;
 		top: 50%;
@@ -20,10 +20,10 @@
 		transform: translateY(-50%);
 		height: 100%;
 		opacity: .4;
-		background-position: center;
-		background-position: cover;
+		background-position: top center;
+		background-size: cover;
 	}
 	@include breakpoint(large) {
-		height: 400px;
+		height: $page-header-large-height;
 	}
 }

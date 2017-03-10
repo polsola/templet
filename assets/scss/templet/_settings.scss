@@ -1,2 +1,39 @@
 // Overwrite here variables from Foundation Sites, check inside /node_modules/foundation-sites/scss/settings/_settings.scss
 
+@import 'util/util';
+
+// 1. Global
+// ---------
+
+$foundation-palette: (
+  primary: #1779ba,
+  secondary: #767676,
+  success: #3adb76,
+  warning: #ffae00,
+  alert: #cc4b37,
+);
+
+@include add-foundation-colors;
+
+// 4. Base Typography
+// ------------------
+
+$body-font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$header-styles: (
+  small: (
+    'h1': ('font-size': 24),
+    'h2': ('font-size': 20),
+    'h3': ('font-size': 19),
+    'h4': ('font-size': 18),
+    'h5': ('font-size': 17),
+    'h6': ('font-size': 16),
+  ),
+  medium: (
+    'h1': ('font-size': 40),
+    'h2': ('font-size': 31),
+    'h3': ('font-size': 25),
+    'h4': ('font-size': 22),
+    'h5': ('font-size': 20),
+    'h6': ('font-size': 16),
+  ),
+);

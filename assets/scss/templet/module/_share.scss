@@ -1,7 +1,3 @@
-$brand-facebook: #3b5998;
-$brand-twitter: #1da1f2;
-$brand-google-plus: #dd4b39;
-$brand-whatsapp: #25d366;
 .share {
 	position: fixed;
 	bottom: 0;
@@ -18,9 +14,9 @@ $brand-whatsapp: #25d366;
 	&__item {
 		a {
 			display: block;
-			color:#fff;
+			color: $white;
 			&:hover {
-				color:#fff;
+				color: $white;
 			}
 		}
 		&--facebook { a { background-color: $brand-facebook } }

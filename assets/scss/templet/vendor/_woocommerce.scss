@@ -1,12 +1,7 @@
-$tm-products-row: 3;
-$tm-products-row-margin: 3.8%;
-
+// Mixin to calculate width
 @function tm-product-row($row, $margin){
-  //@return (100-$margin*($row - 1))/$row;
   @return (100% - $margin*($row - 1))/$row;
 }
-
-//$tm-products-row : (100 - $tm-products-row-margin*($tm-products-row - 1))/$tm-products-row;
 
 .woocommerce, .woocommerce-page {
 	main {
@@ -84,6 +79,7 @@ $tm-products-row-margin: 3.8%;
 	}
 }
 
+// WooCommerce Message extend .callout.success, .wc-forward positioned absolute top/right.
 .woocommerce-message {
 	@extend .callout;
 	@extend .success;
@@ -96,10 +92,13 @@ $tm-products-row-margin: 3.8%;
 	}
 }
 
+// WooCommerce Info extend .callout.primary, .wc-forward positioned absolute top/right.
 .woocommerce-info {
 	@extend .callout;
 	@extend .primary;
 }
+
+// WooCommerce pagination extend Foundation pagionation styles.
 .woocommerce-pagination {
 	text-align: center;
 	.page-numbers {

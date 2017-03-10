@@ -1,12 +1,38 @@
-// Templet variables
+//  Templet custom variables
+//  -----------------------------
 
-// Header
+// 1. Header
+// ---------
+
 $header-nav-color: $white;
 $header-stuck-nav-color: $dark-gray;
 $header-stuck-color: $white;
 
-// Footer
+// 2. Footer
+// ---------
+
 $footer-bg: $dark-gray;
 $footer-color: $white;
 $footer-title-color: $footer-color;
 $footer-link-color: $primary-color;
+
+// 3. Page Header
+// ---------
+
+$page-header-bg: $dark-gray;
+$page-header-height: 320px;
+$page-header-large-height: 400px;
+
+// 4. Share
+// ---------
+
+$brand-facebook: #3b5998;
+$brand-twitter: #1da1f2;
+$brand-google-plus: #dd4b39;
+$brand-whatsapp: #25d366;
+
+// 5. WooCommerce
+// ---------
+
+$tm-products-row: 3;
+$tm-products-row-margin: 3.8%;
