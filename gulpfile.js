@@ -1,4 +1,5 @@
 var project     = 'templet', 
+    domain      = 'templet',
     url         = 'templet.dev';
 
 var gulp        = require('gulp');
@@ -10,6 +11,7 @@ var rename      = require("gulp-rename");
 var cleanCSS    = require('gulp-clean-css');
 var uglify      = require('gulp-uglify');
 var concat      = require('gulp-concat');
+var wpPot       = require('gulp-wp-pot');
 
 var scriptsToConcat = [
     "node_modules/foundation-sites/dist/js/foundation.js",
@@ -65,7 +67,14 @@ gulp.task('scripts', function() {
         
 });
 
-
+gulp.task('localize', function () {
+    return gulp.src('./**/*.php')
+        .pipe(wpPot( {
+            domain: domain,
+            package: project
+        } ))
+        .pipe(gulp.dest('./languages/' + domain + '.pot'));
+});
 
 // Start serve on default task
 gulp.task('default', ['serve']);

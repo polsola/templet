@@ -1,21 +1,17 @@
-#, fuzzy
+# Copyright (C) 2017 templet
+# This file is distributed under the same license as the templet package.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"POT-Creation-Date: 2017-02-27 17:41+0100\n"
-"PO-Revision-Date: 2017-02-20 17:26+0100\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: es\n"
+"Project-Id-Version: templet\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.11\n"
 "X-Poedit-Basepath: ..\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-KeywordsList: _e;__;_x\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: node_modules\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: comments.php:59
 msgid "Name"
@@ -29,42 +25,81 @@ msgstr ""
 msgid "Website"
 msgstr ""
 
-#: footer.php:21
+#: footer.php:30
 msgid "All rights reserved"
 msgstr ""
 
-#: functions.php:68
+#: functions.php:47
+msgid "Primary"
+msgstr ""
+
+#: functions.php:48
+msgid "Footer"
+msgstr ""
+
+#: functions.php:69
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:70
+#: functions.php:71
 msgid "Add widgets here to appear in your sidebar."
 msgstr ""
 
-#: inc/frontend.php:90
-msgid "Your comment is awaiting moderation."
+#: functions.php:79
+msgid "Footer %d"
 msgstr ""
 
-#: inc/frontend.php:94
-#, php-format
-msgid "%1$s at %2$s"
+#: functions.php:81
+msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: inc/frontend.php:97
-msgid "Edit"
+#: searchform.php:14
+msgctxt "placeholder"
+msgid "Search &hellip;"
 msgstr ""
 
-#: index.php:22
-msgid "Read more"
+#: searchform.php:18
+msgctxt "submit button"
+msgid "Search"
 msgstr ""
 
-#: single.php:32
+#: single.php:27
 msgid "Tags"
 msgstr ""
 
-#: single.php:37
+#: single.php:32
 msgid "Comments"
 msgstr ""
 
-#~ msgid "Have a project? Get in touch with us"
-#~ msgstr "¿Tienes un proyecto? Ponte en contacto con nosotros"
+#: inc/frontend.php:102
+msgid "Contact us"
+msgstr ""
+
+#: inc/page-header.php:58
+msgid "Search Results for &#8220;%s&#8221;"
+msgstr ""
+
+#: inc/post.php:54
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: inc/post.php:58
+msgctxt "1: date, 2: time"
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: inc/post.php:61
+msgid "Edit"
+msgstr ""
+
+#: template-parts/loop.php:10
+msgid "Read more"
+msgstr ""
+
+#: template-parts/share.php:13
+msgid "Share %s "
+msgstr ""
+
+#: template-parts/share.php:14, template-parts/share.php:15, template-parts/share.php:16
+msgid "Share on %s"
+msgstr ""
