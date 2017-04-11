@@ -2,16 +2,17 @@ var project     = 'templet',
     domain      = 'templet',
     url         = 'templet.dev';
 
-var gulp        = require('gulp');
-var browserSync = require('browser-sync').create();
-var sass        = require('gulp-sass');
+var gulp         = require('gulp');
+var browserSync  = require('browser-sync').create();
+var sass         = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
-var plumber     = require('gulp-plumber');
-var rename      = require("gulp-rename");
-var cleanCSS    = require('gulp-clean-css');
-var uglify      = require('gulp-uglify');
-var concat      = require('gulp-concat');
-var wpPot       = require('gulp-wp-pot');
+var plumber      = require('gulp-plumber');
+var rename       = require("gulp-rename");
+var cleanCSS     = require('gulp-clean-css');
+var uglify       = require('gulp-uglify');
+var concat       = require('gulp-concat');
+var wpPot        = require('gulp-wp-pot');
+var sourcemaps   = require('gulp-sourcemaps');
 
 var scriptsToConcat = [
     "node_modules/foundation-sites/dist/js/foundation.js",
@@ -21,60 +22,63 @@ var scriptsToConcat = [
 // Static Server + watching scss/html files
 gulp.task('serve', ['styles'], function() {
 
-    browserSync.init({
+    browserSync.init( {
         proxy: url,
         open: false
-    });
+    } );
 
-    gulp.watch("./assets/scss/**/*.scss", ['styles']);
-    gulp.watch("./**/*.php").on('change', browserSync.reload);
-    gulp.watch("./assets/scripts/**/*.js", ['scripts']);
+    gulp.watch( "./assets/scss/**/*.scss", ['styles'] );
+    gulp.watch( "./**/*.php").on('change', browserSync.reload );
+    gulp.watch( "./assets/scripts/**/*.js", ['scripts'] );
 });
 
 // Compile scss into CSS & auto-inject into browsers
 gulp.task('styles', function() {
     return gulp.src("./assets/scss/**/*.scss")
-		.pipe(plumber())
-        .pipe(sass.sync({
+		.pipe( plumber() )
+        .pipe( sourcemaps.init() )
+        .pipe( sass.sync({
         	includePaths: ["node_modules/foundation-sites/scss", 'node_modules/motion-ui/src'] 
-        }))
-        .pipe(autoprefixer({
+        }) )
+        .pipe( autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
-        }))
-        .pipe(gulp.dest("./static/css"))
-        .pipe(browserSync.stream())
-        .pipe(cleanCSS())
-        .pipe(rename({
+        }) )
+        .pipe( sourcemaps.write ( "./static/css" ) )
+        .pipe( gulp.dest("./static/css") )
+        .pipe( browserSync.stream() )
+        .pipe( cleanCSS() )
+        .pipe( rename({
             suffix: ".min",
-        }))
-        .pipe(gulp.dest("./static/css"));
+        }) )
+        .pipe( gulp.dest("./static/css") );
         
 });
 
 // Concat & uglify scripts
 gulp.task('scripts', function() {
     return gulp.src(scriptsToConcat)
-        .pipe(plumber())
-        .pipe(concat('app.js'))
-        .pipe(gulp.dest('./static/scripts'))
-        .pipe(browserSync.stream())
-        .pipe(uglify())
-        .pipe(rename({
+        .pipe( plumber() )
+        .pipe( concat('app.js') )
+        .pipe( gulp.dest('./static/scripts') )
+        .pipe( browserSync.stream() )
+        .pipe( uglify() )
+        .pipe( rename({
             suffix: ".min",
-        }))
-        .pipe(gulp.dest("./static/scripts"));
+        }) )
+        .pipe( gulp.dest("./static/scripts") );
         
 });
 
+// Generate .pot file to localize .php strings
 gulp.task('localize', function () {
     return gulp.src('./**/*.php')
-        .pipe(wpPot( {
+        .pipe( wpPot( {
             domain: domain,
             package: project
-        } ))
-        .pipe(gulp.dest('./languages/' + domain + '.pot'));
+        } ) )
+        .pipe( gulp.dest('./languages/' + domain + '.pot') );
 });
 
 // Start serve on default task
-gulp.task('default', ['serve']);
+gulp.task( 'default', ['serve'] );
