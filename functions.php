@@ -102,4 +102,4 @@ if ( ! isset( $content_width ) ) {
  *
  * @link https://docs.woocommerce.com/document/third-party-custom-theme-compatibility/
  */
-require_once 'inc/woocommerce.php';
+require_once 'inc/woocommerce/global.php';

@@ -13,7 +13,9 @@
  * Add WooCommerce support for theme
  */
 function tm_woocommerce_support() {
-    add_theme_support( 'woocommerce' );
+    add_theme_support( 'wc-product-gallery-zoom' );
+    add_theme_support( 'wc-product-gallery-lightbox' );
+    add_theme_support( 'wc-product-gallery-slider' );
 }
 add_action( 'after_setup_theme', 'tm_woocommerce_support' );
 
@@ -23,11 +25,29 @@ add_action( 'after_setup_theme', 'tm_woocommerce_support' );
 add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
 /**
+ * Get container class for WooCommerce pages
+ */
+function tm_get_container_class()
+{
+	$css_class = array();
+	
+	if( is_product() ) {
+		$css_class[] = 'large-12';
+	} else {
+		$css_class[] = 'large-8';
+	}
+
+	$css_class[] = 'columns';
+
+	return implode( $css_class, ' ' );
+}
+
+/**
  * Hook woocommerce list to add foundation grid elements
  */
 function tm_woocommerce_before_list()
 {
-	echo '<div class="row"><div class="large-8 columns">';
+	echo '<div class="row"><div class="' . tm_get_container_class() . '">';
 }
 add_action( 'woocommerce_before_main_content', 'tm_woocommerce_before_list', 1);
 
@@ -48,11 +68,21 @@ add_action( 'woocommerce_sidebar', 'tm_woocommerce_after_sidebar');
  * Change number or products per row to 3
  */
 if (!function_exists('loop_columns')) {
-	function loop_columns() {
+	function tm_loop_columns() {
 		return 3; // 3 products per row
 	}
 }
-add_filter('loop_shop_columns', 'loop_columns');
+add_filter('loop_shop_columns', 'tm_loop_columns');
+
+/**
+ * Remove sidebar from product page
+ */
+function ps_remove_sidebar_product_pages() {
+	if (is_product()) {
+		remove_action('woocommerce_sidebar','woocommerce_get_sidebar',10);
+	}
+}
+add_action( 'wp', 'ps_remove_sidebar_product_pages' );
 
 /**
  * Change number and rows of related products
@@ -63,3 +93,5 @@ function tm_related_products_args( $args ) {
 	return $args;
 }
 add_filter( 'woocommerce_output_related_products_args', 'tm_related_products_args' );
+
+require_once 'single.php';
