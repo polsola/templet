@@ -15,7 +15,7 @@ get_header(); ?>
 	<div class="row">
 		<div class="large-8 columns">
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part('template-parts/loop'); ?>
+				<?php get_template_part( 'template-parts/loop' ); ?>
 			<?php endwhile; ?>
 			<?php tm_pagination(); ?>
 			<?php endif; ?>

@@ -1,44 +1,47 @@
 <?php
+/**
+ * The functions.php file is where you add unique features to your WordPress theme.
+ *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
+ * @package WordPress
+ * @subpackage Templet
+ * @since 1.0
+ * @version 1.0
+ */
 
-define('TM_THEME', get_stylesheet_directory_uri());
-define('TM_STATIC', TM_THEME . '/static');
+define( 'TM_THEME', get_stylesheet_directory_uri() );
+define( 'TM_STATIC', TM_THEME . '/static' );
 
 /**
-* Theme init 
-*/
-function tm_init()
-{
-    
+ * Theme init
+ */
+function tm_init() {
+
 	require_once 'inc/login.php';
 	require_once 'inc/page-header.php';
 	require_once 'inc/post.php';
 	require_once 'inc/vendor.php';
-	require_once 'inc/foundation-nav-walker.php';
-    
-    if (is_admin())
-    {
-        require_once 'inc/backend.php';
-    }
-    else
-    {
-        require_once 'inc/frontend.php';
-    }
+	require_once 'inc/class-foundation-nav-walker.php';
+
+	if ( is_admin() ) {
+		require_once 'inc/backend.php';
+	} else {
+		require_once 'inc/frontend.php';
+	}
 }
-add_action('init', 'tm_init');
+add_action( 'init', 'tm_init' );
 
 /**
-* After setup theme
-*/
-function tm_setup()
-{
+ * After setup theme
+ */
+function tm_setup() {
 	load_theme_textdomain( 'templet', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
-
 	add_theme_support( 'title-tag' );
-
 
 	add_theme_support( 'post-thumbnails' );
 
@@ -47,7 +50,6 @@ function tm_setup()
 		'primary' 	=> esc_html__( 'Primary', 'templet' ),
 		'footer' 	=> esc_html__( 'Footer', 'templet' ),
 	) );
-
 
 	add_theme_support( 'html5', array(
 		'search-form',
@@ -76,6 +78,7 @@ function tm_widgets_init() {
 	) );
 
 	register_sidebars(4, array(
+		// translators: Number of current footer.
 		'name'          => __( 'Footer %d', 'templet' ),
 		'id'            => 'sidebar-footer',
 		'description'   => __( 'Add widgets here to appear in your footer.', 'templet' ),
