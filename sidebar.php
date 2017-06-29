@@ -14,7 +14,6 @@ if ( ! is_active_sidebar( 'sidebar-blog' ) ) {
 	return;
 }
 ?>
-
 <aside class="sidebar">
 	<?php dynamic_sidebar( 'sidebar-blog' ); ?>
 </aside>

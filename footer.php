@@ -14,6 +14,7 @@
 
 ?>
 				</main>
+				<?php do_action( 'tm_before_footer' ); ?>
 				<footer class="footer">
 					<div class="footer__widgets">
 						<div class="row">

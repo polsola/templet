@@ -13,9 +13,9 @@
  * Add WooCommerce support for theme
  */
 function tm_woocommerce_support() {
-    add_theme_support( 'wc-product-gallery-zoom' );
-    add_theme_support( 'wc-product-gallery-lightbox' );
-    add_theme_support( 'wc-product-gallery-slider' );
+	add_theme_support( 'wc-product-gallery-zoom' );
+	add_theme_support( 'wc-product-gallery-lightbox' );
+	add_theme_support( 'wc-product-gallery-slider' );
 }
 add_action( 'after_setup_theme', 'tm_woocommerce_support' );
 
@@ -27,11 +27,10 @@ add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 /**
  * Get container class for WooCommerce pages
  */
-function tm_get_container_class()
-{
+function tm_get_container_class() {
 	$css_class = array();
-	
-	if( is_product() ) {
+
+	if ( is_product() ) {
 		$css_class[] = 'large-12';
 	} else {
 		$css_class[] = 'large-8';
@@ -43,49 +42,52 @@ function tm_get_container_class()
 }
 
 /**
- * Hook woocommerce list to add foundation grid elements
+ * Hook woocommerce list to add foundation grid elements before list
  */
-function tm_woocommerce_before_list()
-{
-	echo '<div class="row"><div class="' . tm_get_container_class() . '">';
+function tm_woocommerce_before_list() {
+	echo '<div class="row"><div class="' . esc_html( tm_get_container_class() ) . '">';
 }
-add_action( 'woocommerce_before_main_content', 'tm_woocommerce_before_list', 1);
+add_action( 'woocommerce_before_main_content', 'tm_woocommerce_before_list', 1 );
 
-function tm_woocommerce_after_list()
-{
+/**
+ * Hook woocommerce list to add foundation grid elements after list
+ */
+function tm_woocommerce_after_list() {
 	echo '</div><!-- END .large-8 --><div class="large-4 columns">';
 }
-add_action( 'woocommerce_after_main_content', 'tm_woocommerce_after_list', 100);
+add_action( 'woocommerce_after_main_content', 'tm_woocommerce_after_list', 100 );
 
-function tm_woocommerce_after_sidebar()
-{
+/**
+ * Hook woocommerce list to add foundation grid elements after sidebar
+ */
+function tm_woocommerce_after_sidebar() {
 	echo '</div><!-- END .large-4 --></div><!-- END .row -->';
 }
-add_action( 'woocommerce_sidebar', 'tm_woocommerce_after_sidebar');
+add_action( 'woocommerce_sidebar', 'tm_woocommerce_after_sidebar' );
 
 
 /**
  * Change number or products per row to 3
  */
-if (!function_exists('loop_columns')) {
-	function tm_loop_columns() {
-		return 3; // 3 products per row
-	}
+function tm_loop_columns() {
+	return 3; // 3 products per row
 }
-add_filter('loop_shop_columns', 'tm_loop_columns');
+add_filter( 'loop_shop_columns', 'tm_loop_columns' );
 
 /**
  * Remove sidebar from product page
  */
 function ps_remove_sidebar_product_pages() {
-	if (is_product()) {
-		remove_action('woocommerce_sidebar','woocommerce_get_sidebar',10);
+	if ( is_product() ) {
+		remove_action( 'woocommerce_sidebar','woocommerce_get_sidebar',10 );
 	}
 }
 add_action( 'wp', 'ps_remove_sidebar_product_pages' );
 
 /**
  * Change number and rows of related products
+ *
+ * @param array $args Array of argumnents for WooCommerce configuration.
  */
 function tm_related_products_args( $args ) {
 	$args['posts_per_page'] = 3;

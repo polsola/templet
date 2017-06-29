@@ -73,6 +73,6 @@
 							</div>
 						</div>
 					</header>
-					<?php tm_page_header(); ?>
+					<?php do_action( 'tm_after_header' ); ?>
 					<main>
 						

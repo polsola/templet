@@ -25,6 +25,7 @@ function tm_page_header() {
 	</section>
 	<?php
 }
+add_action( 'tm_after_header', 'tm_page_header' );
 
 /**
  * Get page title depending on current page
