@@ -44,18 +44,18 @@
 			</div>
 			<div class="off-canvas-content" data-off-canvas-content>
 					<header id="header" class="header">
-						<div class="row">
-							<div class="small-3 columns hide-for-large">
+						<div class="grid-x grid-padding-x">
+							<div class="small-3 cell hide-for-large">
 								<a data-toggle="off-canvas" class="header__toggle">
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 								</a>
 							</div>
-							<div class="small-6 large-3 columns">
+							<div class="small-6 large-3 cell">
 								<a href="<?php echo esc_url( site_url() ); ?>" title="<?php bloginfo( 'title' ); ?>" class="header__brand"><?php bloginfo( 'title' ); ?></a>
 							</div>
-							<div class="large-9 columns show-for-large">
+							<div class="large-9 cell show-for-large">
 								<!-- Header nav -->
 								<nav class="header__nav">
 									<?php

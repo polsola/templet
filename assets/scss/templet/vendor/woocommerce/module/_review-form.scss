@@ -1,0 +1,56 @@
+p.stars {
+		a {
+			position: relative;
+			height: 1em;
+			width: 1em;
+			text-indent: -999em;
+			display: inline-block;
+			text-decoration: none;
+			@extend .fa;
+			@extend .fa-star;
+			color: $medium-gray;
+			
+
+			&::before {
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 1em;
+				height: 1em;
+				line-height: 1;
+				text-indent: 0;
+				
+			}
+
+			&:hover {
+				~ a {
+					color: $medium-gray;
+				}
+			}
+		}
+		
+		&:hover {
+			a {
+				color: $primary-color;
+			}
+		} 
+
+		&.selected {
+			a {
+				color: $primary-color;
+			}
+			a.active {
+				~ a {
+					color: $medium-gray;
+				}
+			}
+
+			a:not( .active ) {
+				color: $medium-gray;
+				&::before {
+					//content: '\e020';
+				}
+			}
+		}
+	}
