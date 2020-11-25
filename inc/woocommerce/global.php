@@ -10,6 +10,13 @@
  */
 
 /**
+ * If WooCommerce is not active, return
+ */
+if ( ! class_exists( 'woocommerce' ) ) {
+	return;
+}
+
+/**
  * Add WooCommerce support for theme
  */
 function tm_woocommerce_support() {
@@ -36,7 +43,7 @@ function tm_get_container_class() {
 		$css_class[] = 'large-8';
 	}
 
-	$css_class[] = 'columns';
+	$css_class[] = 'cell';
 
 	return implode( $css_class, ' ' );
 }
@@ -45,7 +52,7 @@ function tm_get_container_class() {
  * Hook woocommerce list to add foundation grid elements before list
  */
 function tm_woocommerce_before_list() {
-	echo '<div class="row"><div class="' . esc_html( tm_get_container_class() ) . '">';
+	echo '<div class="grid-container grid-container-padded"><div class="grid-x grid-padding-x"><div class="' . esc_html( tm_get_container_class() ) . '">';
 }
 add_action( 'woocommerce_before_main_content', 'tm_woocommerce_before_list', 1 );
 
@@ -53,7 +60,7 @@ add_action( 'woocommerce_before_main_content', 'tm_woocommerce_before_list', 1 )
  * Hook woocommerce list to add foundation grid elements after list
  */
 function tm_woocommerce_after_list() {
-	echo '</div><!-- END .large-8 --><div class="large-4 columns">';
+	echo '</div><!-- END .large-8 --><div class="large-4 cell">';
 }
 add_action( 'woocommerce_after_main_content', 'tm_woocommerce_after_list', 100 );
 
@@ -61,7 +68,7 @@ add_action( 'woocommerce_after_main_content', 'tm_woocommerce_after_list', 100 )
  * Hook woocommerce list to add foundation grid elements after sidebar
  */
 function tm_woocommerce_after_sidebar() {
-	echo '</div><!-- END .large-4 --></div><!-- END .row -->';
+	echo '</div><!-- END .large-4 --></div><!-- END .grid-x --></div><!-- END .large-4 --></div><!-- END .grid-container -->';
 }
 add_action( 'woocommerce_sidebar', 'tm_woocommerce_after_sidebar' );
 

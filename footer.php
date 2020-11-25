@@ -17,7 +17,7 @@
 				<?php do_action( 'tm_before_footer' ); ?>
 				<footer class="footer">
 					<div class="footer__widgets">
-						<div class="grid-x grid-margin-x">
+						<div class="grid-x grid-padding-x">
 							<?php for ( $i = 1; $i <= 4; $i++ ) : ?>
 								<div class="large-3 cell">
 									<?php dynamic_sidebar( 'Footer ' . $i ); ?>
@@ -26,7 +26,7 @@
 						</div>
 					</div>
 					<div class="footer__credits">
-						<div class="grid-x grid-margin-x">
+						<div class="grid-x grid-padding-x">
 							<div class="medium-6 cell">
 								<p class="footer__credits__text">© <?php echo esc_html( date( 'Y' ) ); ?> <?php esc_html_e( 'All rights reserved', 'templet' ); ?></p>
 							</div>

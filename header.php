@@ -44,7 +44,7 @@
 			</div>
 			<div class="off-canvas-content" data-off-canvas-content>
 					<header id="header" class="header">
-						<div class="grid-x">
+						<div class="grid-x grid-padding-x">
 							<div class="small-3 cell hide-for-large">
 								<a data-toggle="off-canvas" class="header__toggle">
 									<span class="icon-bar"></span>
