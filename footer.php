@@ -17,20 +17,20 @@
 				<?php do_action( 'tm_before_footer' ); ?>
 				<footer class="footer">
 					<div class="footer__widgets">
-						<div class="row">
+						<div class="grid-x grid-margin-x">
 							<?php for ( $i = 1; $i <= 4; $i++ ) : ?>
-								<div class="large-3 columns">
+								<div class="large-3 cell">
 									<?php dynamic_sidebar( 'Footer ' . $i ); ?>
 								</div>
 							<?php endfor; ?>
 						</div>
 					</div>
 					<div class="footer__credits">
-						<div class="row">
-							<div class="medium-6 columns">
+						<div class="grid-x grid-margin-x">
+							<div class="medium-6 cell">
 								<p class="footer__credits__text">© <?php echo esc_html( date( 'Y' ) ); ?> <?php esc_html_e( 'All rights reserved', 'templet' ); ?></p>
 							</div>
-							<div class="medium-6 columns">
+							<div class="medium-6 cell">
 								<nav class="footer__credits__nav">
 								<?php
 								wp_nav_menu( array(

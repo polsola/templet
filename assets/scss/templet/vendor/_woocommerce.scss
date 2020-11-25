@@ -71,10 +71,10 @@
 	}
 
 	.col2-set {
-		@extend .row;
+		@extend .grid-x;
 		.col-1, .col-2 {
 			@extend .large-6;
-			@extend .columns;
+			@extend .cell;
 		}
 	}
 }
