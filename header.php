@@ -22,57 +22,26 @@
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
-		<div class="off-canvas-wrapper">
-			<div class="off-canvas position-left" id="off-canvas" data-off-canvas>
-				<!-- Close button -->
-				<button class="close-button" aria-label="Close menu" type="button" data-close>
-				  <span aria-hidden="true">&times;</span>
-				</button>
-				<!-- Header nav -->
-				<nav class="off-canvas__nav">
-					<?php
-					wp_nav_menu( array(
-						'sort_column'     => 'menu_order',
-						'container'       => false,
-						'menu_class'      => 'menu vertical',
-						'theme_location'  => 'primary',
-						'items_wrap'      => '<ul id="%1$s" class="%2$s" data-drilldown>%3$s</ul>',
-						)
-					);
-					?>
-				</nav>
-			</div>
-			<div class="off-canvas-content" data-off-canvas-content>
-					<header id="header" class="header">
-						<div class="grid-x grid-padding-x">
-							<div class="small-3 cell hide-for-large">
-								<a data-toggle="off-canvas" class="header__toggle">
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-								</a>
-							</div>
-							<div class="small-6 large-3 cell">
-								<a href="<?php echo esc_url( site_url() ); ?>" title="<?php bloginfo( 'title' ); ?>" class="header__brand"><?php bloginfo( 'title' ); ?></a>
-							</div>
-							<div class="large-9 cell show-for-large">
-								<!-- Header nav -->
-								<nav class="header__nav">
-									<?php
-									wp_nav_menu( array(
-										'sort_column'     => 'menu_order',
-										'container'       => false,
-										'menu_class'      => 'menu',
-										'theme_location'  => 'primary',
-										'items_wrap'      => '<ul id="%1$s" class="%2$s" data-dropdown>%3$s</ul>',
-										'walker'		  => new Foundation_Nav_Walker(),
-										)
-									);
-									?>
-								</nav>
-							</div>
-						</div>
-					</header>
-					<?php do_action( 'tm_after_header' ); ?>
-					<main>
+			<header id="header" class="header">
+				<div class="header__main container mx-auto">
+					<div class="lg:hidden">
+						<?php get_template_part('template-parts/header/mobile-toggle'); ?>
+					</div>
+					<a href="<?php echo esc_url( site_url() ); ?>" title="<?php bloginfo( 'title' ); ?>" class="header__brand"><?php bloginfo( 'title' ); ?></a>
+					<nav class="header__nav hidden lg:block flex-grow">
+						<?php
+						wp_nav_menu( array(
+							'sort_column'     => 'menu_order',
+							'container'       => false,
+							'menu_class'      => 'menu',
+							'theme_location'  => 'primary',
+							)
+						);
+						?>
+					</nav>
+					<?php get_template_part('template-parts/social/icons'); ?>
+				</div>
+			</header>
+			<?php do_action( 'tm_after_header' ); ?>
+			<main>
 						

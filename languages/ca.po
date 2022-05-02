@@ -1,6 +1,5 @@
 # Copyright (C) 2022 templet
 # This file is distributed under the same license as the templet package.
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: templet\n"
@@ -9,6 +8,7 @@ msgstr ""
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,32 +25,32 @@ msgstr ""
 
 #: footer.php:42
 msgid "All rights reserved"
-msgstr ""
+msgstr "Tots els drets reservats"
 
 #: footer.php:43
 msgid "Website created by %s"
-msgstr ""
+msgstr "Lloc web creat per %s"
 
 #: searchform.php:14
 msgctxt "placeholder"
 msgid "Search"
-msgstr ""
+msgstr "Cercar"
 
 #: searchform.php:18
 msgctxt "submit button"
 msgid "Search"
-msgstr ""
+msgstr "Cerca"
 
 #: single.php:29
 msgid "Tags"
-msgstr ""
+msgstr "Etiquetes"
 
 #. translators: The title of the article / product beeing shared.
 #: template-parts/social/share.php:14
 msgid "Share %s "
-msgstr ""
+msgstr "Comparteix %s "
 
 #. translators: The Social network name where the article / product beeing shared.
 #: template-parts/social/share.php:16
 msgid "Share on %s"
-msgstr ""
+msgstr "Comparteix a %s"

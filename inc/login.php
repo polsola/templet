@@ -32,7 +32,7 @@ add_filter( 'login_headerurl', 'tm_login_logo_url' );
 function tm_login_logo_url_title() {
 	return get_bloginfo( 'title' );
 }
-add_filter( 'login_headertitle', 'tm_login_logo_url_title' );
+add_filter( 'login_headertext', 'tm_login_logo_url_title' );
 
 /**
  * Redirects users based on their role

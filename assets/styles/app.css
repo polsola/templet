@@ -1,9 +1,16 @@
-@import 'templet/settings';
-@import 'foundation';
-@import 'motion-ui';
+@import "tailwindcss/base";
 
-@include foundation-everything();
-@include motion-ui-transitions;
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+@import "components/_mobile-navigation";
+@import "components/_off-canvas";
+
+@import "partials/_header";
+@import "partials/_footer";
+
+/*
 
 @import 'templet/variables';
 
@@ -21,6 +28,10 @@
 @import 'templet/module/widget';
 @import 'templet/module/type';
 
-@import 'templet/vendor/font-awesome';
 @import 'templet/vendor/contact-form';
 @import 'templet/vendor/woocommerce';
+*/
+
+body {
+    font-family: 'Roboto';
+}

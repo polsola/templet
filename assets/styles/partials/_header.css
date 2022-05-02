@@ -1,0 +1,38 @@
+.header {
+	--brand-width: 200px;
+	@apply p-4;
+	&__main {
+		@apply grid gap-4 items-center lg:flex;
+		grid-template-columns: 64px 1fr 64px;
+	}
+	&__brand {
+		@apply block;
+		background: url('../images/brand--default.png') no-repeat center/contain;
+		height: 42px;
+		width: var(--brand-width);
+		text-indent: -9999px;
+	}
+	&__nav {
+		.menu {
+			&__item {
+				position: relative;
+				&--active {
+					&:after {
+						content:'';
+						width: 100%;
+						position: absolute;
+						bottom: -3px;
+						left: 0;
+						width: 100%;
+						height: 3px;
+						background-color: $primary-color;
+					}
+					
+				}
+				a {
+					color: $header-nav-color;
+				}
+			}
+		}
+	}
+}

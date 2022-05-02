@@ -13,21 +13,16 @@
  * Enqueue scripts and styles.
  */
 function tm_scripts() {
-	wp_enqueue_style( 'app', get_template_directory_uri() . '/static/css/app.css' );
+	wp_enqueue_style( 'app', TM_STATIC . '/styles/app.css' );
 
 	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Roboto:400,700' );
 
-	wp_enqueue_script( 'jquery' );
-	wp_register_script( 'app', get_template_directory_uri() . '/static/scripts/app.js', array( 'jquery' ), '1.0', true );
+	wp_register_script( 'app', TM_STATIC . '/scripts/app.js', null, '1.0', true );
 	$variables_array = array(
 		'site_url' => site_url(),
 	);
 	wp_localize_script( 'app', 'wp_vars', $variables_array );
 	wp_enqueue_script( 'app' );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
 
 }
 add_action( 'wp_enqueue_scripts', 'tm_scripts' );
@@ -69,22 +64,6 @@ function tm_pagination() {
 }
 
 /**
- * Remove Query String from Static Resources to improve browser caching
- *
- * @param string $src url to css/js resource.
- */
-function tm_remove_cssjs_ver( $src ) {
-
-	if ( strpos( $src, '?ver=' ) || strpos( $src, '&ver=' ) ) {
-		$src = remove_query_arg( 'ver', $src );
-	}
-	return $src;
-
-}
-add_filter( 'style_loader_src', 'tm_remove_cssjs_ver', 10, 2 );
-add_filter( 'script_loader_src', 'tm_remove_cssjs_ver', 10, 2 );
-
-/**
  * Add item to main nav
  * Hook to menus and add items with diferent layouts, for example a cta button
  *
@@ -99,13 +78,13 @@ function tm_append_nav_menu_items( $items, $args ) {
 
 	if ( $args->theme_location === $menu ) {
 
-				$button = '<li class="header__nav__item--cta"><a class="button" href="#">' . __( 'Contact us', 'templet' ) . '</a></li>';
+				$button = '<li class="header__nav__item--cta"><a class="button" href="#">Contact us</a></li>';
 		$items .= $button;
 
 	}
 	return $items;
 }
-add_filter( 'wp_nav_menu_items', 'tm_append_nav_menu_items', 10, 2 );
+//add_filter( 'wp_nav_menu_items', 'tm_append_nav_menu_items', 10, 2 );
 
 /**
  * Include favicon, apple-touch icon and manifest to wp_head
@@ -124,19 +103,6 @@ function tm_favicon_head() {
 }
 add_action( 'wp_head', 'tm_favicon_head' );
 
-/**
- * Similar to the_post_thumbnail but using the interchange library from foundation-sites
- *
- * @link http://foundation.zurb.com/sites/docs/interchange.html
- *
- * @param array $small_size Small image size.
- */
-function tm_the_post_thumbnail( $small_size = array( 960, 450 ) ) {
-	global $post;
-	if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it. ?>
-		<img data-interchange="[<?php echo esc_url( the_post_thumbnail_url( $small_size ) ); ?>, small], [<?php echo esc_url( the_post_thumbnail_url( array( $small_size[0] * 2, $small_size[1] * 2 ) ) ); ?>, retina]" alt="<?php the_title(); ?>">
-	<?php }
-}
 
 /**
  * Hook the WP menu class to add BEM classes
@@ -160,4 +126,10 @@ function ps_menu_classes( $classes, $item, $args ) {
 
 add_filter( 'nav_menu_css_class', 'ps_menu_classes', 10, 3 );
 
-require_once 'share/share.php';
+function tm_icon($icon, $class = "w-8 h-8" ) {
+	?>
+	<svg class="icon <?php echo $class; ?>" xmlns=http://www.w3.org/2000/svg role="img" >
+		<use xlink:href="<?php echo TM_STATIC; ?>/images/icons.svg#<?php echo $icon; ?>"></use>
+	</svg>
+	<?php
+}

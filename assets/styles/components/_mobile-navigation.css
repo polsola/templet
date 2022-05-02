@@ -1,0 +1,75 @@
+/* Icon */
+.mobile__nav__icon {
+    --mobile-icon-height: 4px;
+    --mobile-icon-spacing: -10px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  font-size: 0;
+  text-indent: -9999px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  background: none;
+  &:focus {
+    outline: none;
+  }
+  span {
+    display: block;
+    position: absolute;
+    top: 17px;
+    left: 0;
+    width: 32px;
+    right: 20px;
+    height: var(--mobile-icon-height);
+    @apply bg-primary;
+    transition: background 0s 0.3s;
+    border-radius: 2px;
+    &:before,
+    &:after {
+      position: absolute;
+      display: block;
+      left: 0;
+      width: 100%;
+      height: var(--mobile-icon-height);
+      @apply bg-primary;
+      content: "";
+      border-radius: 2px;
+      transition-duration: 0.3s, 0.3s;
+      transition-delay: 0.3s, 0s;
+    }
+    &:before {
+      top: var(--mobile-icon-spacing);
+      transition-property: top, transform, background;
+    }
+    &:after {
+      bottom: var(--mobile-icon-spacing);
+      transition-property: bottom, transform, background;
+    }
+  }
+
+  &.is-active {
+    span {
+      background: none !important;
+      &:before,
+      &:after {
+        transition-delay: 0s, 0.3s;
+      }
+      &:before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+      &:after {
+        bottom: 0;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}

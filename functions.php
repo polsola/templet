@@ -19,10 +19,7 @@ define( 'TM_STATIC', TM_THEME . '/static' );
 function tm_init() {
 
 	require_once 'inc/login.php';
-	require_once 'inc/page-header.php';
-	require_once 'inc/post.php';
 	require_once 'inc/vendor.php';
-	require_once 'inc/class-foundation-nav-walker.php';
 
 	if ( is_admin() ) {
 		require_once 'inc/backend.php';
@@ -47,8 +44,8 @@ function tm_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' 	=> esc_html__( 'Primary', 'templet' ),
-		'footer' 	=> esc_html__( 'Footer', 'templet' ),
+		'primary' 	=> 'Primary',
+		'footer' 	=> 'Footer',
 	) );
 
 	add_theme_support( 'html5', array(
@@ -68,9 +65,9 @@ add_action( 'after_setup_theme', 'tm_setup' );
  */
 function tm_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'templet' ),
+		'name'          => 'Sidebar',
 		'id'            => 'sidebar-blog',
-		'description'   => __( 'Add widgets here to appear in your sidebar.', 'templet' ),
+		'description'   => 'Add widgets here to appear in your sidebar',
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h5 class="widget__title">',
@@ -79,13 +76,13 @@ function tm_widgets_init() {
 
 	register_sidebars(4, array(
 		// translators: Number of current footer.
-		'name'          => __( 'Footer %d', 'templet' ),
+		'name'          => 'Footer %d',
 		'id'            => 'sidebar-footer',
-		'description'   => __( 'Add widgets here to appear in your footer.', 'templet' ),
+		'description'   => 'Add widgets here to appear in your footer',
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h5 class="widget__title">',
-		'after_title'   => '</h5>',
+		'before_title'  => '<h4 class="widget__title">',
+		'after_title'   => '</h4>',
 	) );
 
 }

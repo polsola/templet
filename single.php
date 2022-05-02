@@ -28,14 +28,6 @@ get_header(); ?>
 					<footer class="single__footer">
 						<p class="single__footer__tags"><?php the_tags( __( 'Tags', 'templet' ) . ': ' , ' ' ); ?></p>
 					</footer>
-					<?php if ( comments_open() || get_comments_number() ) {  ?>
-						<div class="single__comments">
-							<?php if ( get_comments_number() !== 0 ) : ?>
-								<h3><?php esc_html_e( 'Comments', 'templet' ); ?></h3>
-							<?php endif; ?>
-							<?php comments_template(); ?>
-						</div>
-					<?php }; ?>
 				</article>
 			</div>
 		</div>

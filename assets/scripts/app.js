@@ -1,21 +1,35 @@
-jQuery(document).foundation();
+const mobileToggles = document.querySelectorAll('.mobile__nav__icon');
+const offCanvas = document.getElementById('off-canvas');
 
-jQuery(document).ready( function($){
-	// Fix for youtube / vimeo embeds
-	var $all_oembed_videos = $("iframe[src*='youtube'], iframe[src*='vimeo']");
-	$all_oembed_videos.each(function() {
-		$(this).removeAttr('height').removeAttr('width').wrap( "<div class='embed-container'></div>" );
- 	});
-
-	// Header stuck / unstuck
- 	$(window).scroll(function() {
-		if ($(this).scrollTop() > 0){  
-		    $('#header').addClass("header--stuck");
+function toggleClassToArray(array, cssClass, action) {
+	for (let index = 0; index < array.length; index++) {
+		const element = array[index];
+		if( action ) {
+			element.classList.add(cssClass);
 		} else {
-		    $('#header').removeClass("header--stuck");
+			element.classList.remove(cssClass);
+		}
+	}
+}
+
+for (let index = 0; index < mobileToggles.length; index++) {
+	const button = mobileToggles[index];
+	button.addEventListener("click", function() {
+		if( offCanvas.classList.contains('mobile__bg--open') ) {
+			offCanvas.classList.remove('mobile__bg--open');
+			toggleClassToArray(mobileToggles, 'is-active', false);
+		} else {
+			offCanvas.classList.add('mobile__bg--open');
+			toggleClassToArray(mobileToggles, 'is-active', true);
 		}
 	});
+}
 
- 	// Fix last item
- 	$('.row .columns:last-child').addClass('end');
+document.addEventListener("keyup", function(event) {
+	if (event.key === 'Escape') {
+		// Cancel the default action, if needed
+		event.preventDefault();
+		offCanvas.classList.remove('mobile__bg--open');
+		toggleClassToArray(mobileToggles, 'is-active', false);
+	}
 });
