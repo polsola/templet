@@ -1,14 +1,19 @@
 # Templet
-WordPress Starter Theme Based on Foundation Sites
+> WordPress Starter Theme Based on Tailwind
 
 ## Introduction
 Templet is designed to be the foundation to create new WordPress theme, it's not meant to be used as parent child, so just copy it and start editing!
 
+
+## Requirements
+* PHP >=7.2
+* [Composer](https://getcomposer.org/)
+* [WordPress](https://wordpress.org) >=5.1
+
 ## Features
-- Based on [Foundation Sites](http://foundation.zurb.com/sites/docs/)
-- SCSS: All styles are written in SCSS following BEM standards
+- Includes [Tailwind](https://tailwindcss.com/) configuration for CSS
 - Gulp: A gulpfile is included with tasks for Styles, Scripts & BrowserSync
-- Compatibility with common plugins: Contact Form 7 or WooCommerce for example have basic layout styles
+- [PostTypes](https://github.com/jjgrainger/PostTypes) is already included to easly created new Post Types
 
 ## Installation
 
@@ -19,16 +24,19 @@ https://github.com/polsola/templet.git
 
 Navigate to the folder with terminal and run
 ```
+composer install
+```
+```
 npm install
 ```
 
 Then open [gulpfile.js](./gulpfile.js) and change the `url` variable to match the one on your local env
 ```
 var project     = 'templet', 
-    url         = 'templet.dev';
+    url         = 'templet.localhost';
 ```
 
 To start editing just type
 ```
-gulp
+npm run dev
 ```

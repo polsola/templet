@@ -9,6 +9,7 @@
  * @since 1.0
  * @version 1.0
  */
+require __DIR__ . '/vendor/autoload.php';
 
 define( 'TM_THEME', get_stylesheet_directory_uri() );
 define( 'TM_STATIC', TM_THEME . '/static' );
