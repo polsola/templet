@@ -57,7 +57,7 @@ function tm_pagination() {
 
 		foreach ( $pages as $page ) {
 
-			echo '<li>' . esc_html( $page ) . '</li>';
+			echo '<li>' . $page . '</li>';
 		}
 		echo '</ul>';
 	}
@@ -126,10 +126,44 @@ function ps_menu_classes( $classes, $item, $args ) {
 
 add_filter( 'nav_menu_css_class', 'ps_menu_classes', 10, 3 );
 
-function tm_icon($icon, $class = "w-8 h-8" ) {
+/**
+ * Icon sprite
+ */
+function tm_icon($icon, $size, $class = "w-8 h-8" ) {
 	?>
-	<svg class="icon <?php echo $class; ?>" xmlns=http://www.w3.org/2000/svg role="img" >
+	<svg class="icon <?php echo $class; ?>" viewBox=" 0 0 <?php echo $size . ' ' . $size; ?>" xmlns=http://www.w3.org/2000/svg role="img" >
 		<use xlink:href="<?php echo TM_STATIC; ?>/images/icons.svg#<?php echo $icon; ?>"></use>
 	</svg>
 	<?php
 }
+
+/**
+ * Before main header
+ */
+function tm_upper_header() {
+	get_template_part( 'template-parts/header/upper' );
+}
+add_action('tm_header_main_before', 'tm_upper_header');
+
+
+/**
+ * Add main menu
+ */
+function tm_add_main_menu() {
+	?>
+	<div class="bg-gray-100 hidden lg:block">
+	<nav class="header__nav container mx-auto">
+		<?php
+		wp_nav_menu( array(
+			'sort_column'     => 'menu_order',
+			'container'       => false,
+			'menu_class'      => 'menu',
+			'theme_location'  => 'primary',
+			)
+		);
+		?>
+	</nav>
+	</div>
+	<?php
+}
+add_action('tm_header_main_after', 'tm_add_main_menu');

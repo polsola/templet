@@ -20,6 +20,7 @@ if ( ! class_exists( 'woocommerce' ) ) {
  * Add WooCommerce support for theme
  */
 function tm_woocommerce_support() {
+	add_theme_support( 'woocommerce' );
 	add_theme_support( 'wc-product-gallery-zoom' );
 	add_theme_support( 'wc-product-gallery-lightbox' );
 	add_theme_support( 'wc-product-gallery-slider' );
@@ -29,7 +30,21 @@ add_action( 'after_setup_theme', 'tm_woocommerce_support' );
 /**
  * Remove WooCommerce default styles
  */
-add_filter( 'woocommerce_enqueue_styles', '__return_false' );
+//add_filter( 'woocommerce_enqueue_styles', '__return_false' );
+
+function tm_ecommerce_header_items() {
+	?>
+	<div class="flex items-center gap-2 justify-end">
+	<?php
+	get_template_part( 'template-parts/ecommerce/user-account');
+	get_template_part( 'template-parts/ecommerce/mini-cart');
+	?>
+	</div>
+	<?php 
+}
+add_action('tm_header_main', 'tm_ecommerce_header_items');
+
+
 
 /**
  * Get container class for WooCommerce pages
@@ -47,31 +62,6 @@ function tm_get_container_class() {
 
 	return implode( $css_class, ' ' );
 }
-
-/**
- * Hook woocommerce list to add foundation grid elements before list
- */
-function tm_woocommerce_before_list() {
-	echo '<div class="grid-container grid-container-padded"><div class="grid-x grid-padding-x"><div class="' . esc_html( tm_get_container_class() ) . '">';
-}
-add_action( 'woocommerce_before_main_content', 'tm_woocommerce_before_list', 1 );
-
-/**
- * Hook woocommerce list to add foundation grid elements after list
- */
-function tm_woocommerce_after_list() {
-	echo '</div><!-- END .large-8 --><div class="large-4 cell">';
-}
-add_action( 'woocommerce_after_main_content', 'tm_woocommerce_after_list', 100 );
-
-/**
- * Hook woocommerce list to add foundation grid elements after sidebar
- */
-function tm_woocommerce_after_sidebar() {
-	echo '</div><!-- END .large-4 --></div><!-- END .grid-x --></div><!-- END .large-4 --></div><!-- END .grid-container -->';
-}
-add_action( 'woocommerce_sidebar', 'tm_woocommerce_after_sidebar' );
-
 
 /**
  * Change number or products per row to 3
@@ -103,4 +93,5 @@ function tm_related_products_args( $args ) {
 }
 add_filter( 'woocommerce_output_related_products_args', 'tm_related_products_args' );
 
+require_once 'cart.php';
 require_once 'single.php';

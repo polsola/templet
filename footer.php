@@ -26,17 +26,16 @@
 					</div>
 					<div class="footer__credits container mx-auto py-4 px-4">
 						<div class="grid gap-4 md:grid-cols-2 text-sm items-center">
-							<nav class="footer__credits__nav">
-								<?php
+							<?php
 								wp_nav_menu( array(
 									'sort_column'     => 'menu_order',
-									'container'       => false,
-									'menu_class'      => 'flex justify-center items-center md:items-start',
+									'container'       => 'nav',
+									'container_class' => 'footer__credits__nav',
+									'menu_class'      => 'flex justify-center items-center md:justify-start gap-2',
 									'theme_location'  => 'footer'
 									)
 								);
 								?>
-							</nav>
 							<p class="footer__credits__text md:text-right">
 								© <?php echo esc_html( date( 'Y' ) ); ?> 
 								<?php esc_html_e( 'All rights reserved', 'templet' ); ?>. 

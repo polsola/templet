@@ -1,0 +1,117 @@
+{
+    "version": 2,
+    "settings": {
+        "color": {
+            "defaultPalette": false,
+            "defaultGradients": false,
+            "palette": [
+                {
+                    "name" : "Primary",
+                    "slug" : "primary",
+                    "color": "#c04243"
+                },
+                {
+                    "name" : "Primary Dark",
+                    "slug" : "primary-dark",
+                    "color": "#a43738"
+                },
+                {
+                    "name" : "Primary Light",
+                    "slug" : "primary-light",
+                    "color": "#F9ECEC"
+                },
+                {
+                    "name" : "Black",
+                    "slug" : "black",
+                    "color": "#000"
+                },
+                {
+                    "name" : "White",
+                    "slug" : "white",
+                    "color": "#fff"
+                },
+                {
+                    "name" : "Gray 100",
+                    "slug" : "gray-100",
+                    "color": "#f3f4f6"
+                },
+                {
+                    "name" : "Gray 300",
+                    "slug" : "gray-300",
+                    "color": "#d1d5db"
+                    
+                },
+                {
+                    "name" : "Gray 600",
+                    "slug" : "gray-600",
+                    "color": "#4b5563"
+                    
+                },
+                {
+                    "name" : "Slate 700",
+                    "slug" : "slate-700",
+                    "color": "#334155"
+                }
+            ],
+            "gradients": [
+				{
+					"slug": "black-to-transparent",
+					"gradient": "linear-gradient(to top right,rgba(0,0,0, .85) 0%,rgb(0,0,0, 0) 100%)",
+					"name": "Diagonal black to transparent"
+				}
+			]
+        },
+        "layout": {
+			"contentSize": "700px",
+			"wideSize": "910px"
+		},
+        "spacing": {
+            "margin": true,
+            "padding": true
+        },
+        "typography": {
+            "fluid": true,
+            "fontFamilies" : [
+                {
+                    "fontFamily": "Poppins",
+                    "slug": "poppins",
+                    "name": "Poppins"
+                }
+            ]
+        }
+    },
+    "styles": {
+        "typography": {
+            "fontFamily": "Poppins"
+        },
+        "elements": {
+            "link": {
+                "typography": {
+                    "textDecoration": "none"
+                }
+            },
+			"heading": {
+				"typography": {
+					"fontWeight": "700"
+				}
+			},
+            "h1": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--x-large)"
+				}
+			},
+            "h2": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--large)"
+				}
+			},
+            "h3": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--medium)"
+				}
+			}
+        }
+    },
+    "customTemplates": {},
+    "templateParts": {}
+}

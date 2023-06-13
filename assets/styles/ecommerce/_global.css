@@ -1,0 +1,13 @@
+.content-area {
+    @apply container mx-auto;
+}
+
+.post-type-archive-product {
+    > main {
+        @apply container mx-auto grid gap-8;
+        grid-template-columns: 300px 1fr;
+        .sidebar {
+            order: -1;
+        }
+    }
+}

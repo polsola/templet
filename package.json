@@ -5,7 +5,7 @@
   "repository": "https://github.com/polsola/templet",
   "main": "index.php",
   "scripts": {
-    "dev": "gulp serve",
+    "start": "gulp serve",
     "styles": "gulp styles",
     "scripts": "gulp scripts",
     "localize": "gulp localize",

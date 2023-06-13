@@ -9,14 +9,11 @@
  */
 
 ?>
-<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-	<div class="input-group">
-		<input type="search" id="<?php echo esc_html( $unique_id ); ?>" class="search-field input-group-field" placeholder="<?php echo esc_attr_x( 'Search', 'placeholder', 'templet' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
-		<div class="input-group-button">
-			<button type="submit" class="search-submit button">
-				<i class="fa fa-search"></i>
-				<span class="sr-only"><?php echo esc_html_x( 'Search', 'submit button', 'templet' ); ?></span>
-			</button>
-		</div>
-	</div>
+<form role="search" method="get" class="search-form input-group flex overflow-hidden items-stretch rounded-full" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+	<button type="submit" class="search-submit bg-white px-4" aria-label="Buscar">
+		<?php tm_icon('search', '36', 'w-8 h-8'); ?>
+		<span class="sr-only">Buscar</span>
+	</button>	
+	<input type="search" class="rounded-none appearance-none search-field input-group-field w-full pr-4 py-2 text-black" placeholder="<?php _e( 'Search products&hellip;', 'woocommerce' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+	<input type="hidden" name="post_type" value="product" />
 </form>

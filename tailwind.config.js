@@ -6,7 +6,10 @@ module.exports = {
         colors: {
             white: '#fff',
             black: '#000',
-            primary: '#c04243',
+            primary: {
+                DEFAULT: 'var(--wp--preset--color--primary)',
+                dark: 'var(--wp--preset--color--primary-dark)'
+            },
             gray: colors.gray,
             slate: colors.slate,
         }

@@ -1,0 +1,9 @@
+root = true
+[*]
+charset = utf-8
+
+[*.{php,js,css,scss}]
+end_of_line = lf
+insert_final_new_line = true
+indent_style = tab
+indent_size = 4

@@ -18,30 +18,23 @@
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title><?php wp_title(); ?></title>
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
-			<header id="header" class="header">
-				<div class="header__main container mx-auto">
-					<div class="lg:hidden">
-						<?php get_template_part('template-parts/header/mobile-toggle'); ?>
-					</div>
-					<a href="<?php echo esc_url( site_url() ); ?>" title="<?php bloginfo( 'title' ); ?>" class="header__brand"><?php bloginfo( 'title' ); ?></a>
-					<nav class="header__nav hidden lg:block flex-grow">
-						<?php
-						wp_nav_menu( array(
-							'sort_column'     => 'menu_order',
-							'container'       => false,
-							'menu_class'      => 'menu',
-							'theme_location'  => 'primary',
-							)
-						);
-						?>
-					</nav>
-					<?php get_template_part('template-parts/social/icons'); ?>
+		<?php do_action( 'tm_before_header' ); ?>
+		<header id="header" class="header shadow">
+			<?php do_action( 'tm_header_main_before' ); ?>
+			<div class="header__main p-4 container mx-auto grid grid-cols-[100px_1fr_100px] gap-4 items-center lg:flex ">
+				<div class="lg:hidden">
+					<?php get_template_part('template-parts/header/mobile-toggle'); ?>
 				</div>
-			</header>
-			<?php do_action( 'tm_after_header' ); ?>
-			<main>
-						
+				<a href="<?php echo esc_url( site_url() ); ?>" title="<?php bloginfo( 'title' ); ?>" class="header__brand"><?php bloginfo( 'title' ); ?></a>
+				<div id="header__main__search" class="header__main__search col-span-3 md:col-span-4 lg:col-span-0 order-last lg:order-[inherit] w-full py-2 flex-grow flex flex-col justify-center lg:px-2">
+					<?php get_search_form( true ); ?>
+				</div>
+				<?php do_action( 'tm_header_main' ); ?>
+			</div>
+			<?php do_action( 'tm_header_main_after' ); ?>
+		</header>
+		<?php do_action( 'tm_after_header' ); ?>
+		<main>

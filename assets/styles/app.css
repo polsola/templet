@@ -10,6 +10,8 @@
 @import "partials/_header";
 @import "partials/_footer";
 
+@import "ecommerce/_global";
+
 /*
 
 @import 'templet/variables';

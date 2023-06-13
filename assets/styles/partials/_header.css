@@ -1,16 +1,6 @@
 .header {
-	--brand-width: 200px;
-	@apply p-4;
-	&__main {
-		@apply grid gap-4 items-center lg:flex;
-		grid-template-columns: 64px 1fr 64px;
-	}
 	&__brand {
-		@apply block;
-		background: url('../images/brand--default.png') no-repeat center/contain;
-		height: 42px;
-		width: var(--brand-width);
-		text-indent: -9999px;
+		@apply block font-bold text-lg;
 	}
 	&__nav {
 		.menu {
@@ -30,9 +20,16 @@
 					
 				}
 				a {
-					color: $header-nav-color;
+					@apply block py-4 px-6 cursor-pointer;
 				}
 			}
 		}
 	}
+	.menu {
+		@apply flex gap-4;
+	}
+}
+
+.search-form {
+	@apply border border-gray-300 w-full max-w-[750px] mx-auto;
 }

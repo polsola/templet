@@ -14,13 +14,15 @@ require __DIR__ . '/vendor/autoload.php';
 define( 'TM_THEME', get_stylesheet_directory_uri() );
 define( 'TM_STATIC', TM_THEME . '/static' );
 
+
 /**
  * Theme init
  */
 function tm_init() {
 
 	require_once 'inc/login.php';
-	require_once 'inc/vendor.php';
+	require_once 'inc/vendor/wpml.php';
+	require_once 'inc/vendor/contact-form.php';
 
 	if ( is_admin() ) {
 		require_once 'inc/backend.php';
@@ -45,8 +47,9 @@ function tm_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' 	=> 'Primary',
-		'footer' 	=> 'Footer',
+		'primary'   => 'Primary',
+		'secondary' => 'Secondary',
+		'footer'    => 'Footer',
 	) );
 
 	add_theme_support( 'html5', array(
