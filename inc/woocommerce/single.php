@@ -12,23 +12,10 @@
 /**
  * Hook woocommerce single product to add foundation grid elements before item
  */
-function tm_single_product_before() {
-	echo '<div class="grid-container grid-container-padded"><div class="grid-x grid-margin-x"><div class="medium-6 cell">';
-}
-add_action( 'woocommerce_before_single_product_summary', 'tm_single_product_before', 0 );
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
 
-/**
- * Hook woocommerce single product to add foundation grid elements after item
- */
-function tm_single_product_after_image() {
-	echo '</div><!-- END .medium-6 --><div class="medium-6 cell">';
+function tm_add_product_description() {
+	get_template_part( 'template-parts/ecommerce/single/description' );
 }
-add_action( 'woocommerce_before_single_product_summary', 'tm_single_product_after_image', 100 );
-
-/**
- * Hook woocommerce single product to add foundation grid elements before tabs
- */
-function tm_single_product_before_tabs() {
-	echo '</div><!-- END .medium-6 --></div><!-- END Summary .grid-x --></div><!-- END Summary .grid-container -->';
-}
-add_action( 'woocommerce_after_single_product_summary', 'tm_single_product_before_tabs', 0 );
+add_action('woocommerce_after_single_product_summary', 'tm_add_product_description', 12);

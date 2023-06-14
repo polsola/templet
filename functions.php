@@ -102,6 +102,19 @@ if ( ! isset( $content_width ) ) {
 }
 
 /**
+ * Include Google fonts to front and back (For Gutenberg editor)
+ */
+function tm_favicon_head() {
+	?>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+	<?php
+}
+add_action( 'wp_head', 'tm_favicon_head' );
+add_action( 'admin_head', 'tm_favicon_head' );
+
+/**
  * WooCommerce file
  *
  * @link https://docs.woocommerce.com/document/third-party-custom-theme-compatibility/

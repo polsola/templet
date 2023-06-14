@@ -95,3 +95,4 @@ add_filter( 'woocommerce_output_related_products_args', 'tm_related_products_arg
 
 require_once 'cart.php';
 require_once 'single.php';
+require_once 'archive.php';
