@@ -13,9 +13,11 @@
  * Enqueue scripts and styles.
  */
 function tm_scripts() {
+	$theme   = wp_get_theme();
+	$version = $theme->get( 'Version' );
 	wp_enqueue_style( 'app', TM_STATIC . '/styles/app.css' );
 
-	wp_register_script( 'app', TM_STATIC . '/scripts/app.js', null, '1.0', true );
+	wp_register_script( 'app', TM_STATIC . '/scripts/app.js', null, $version, true );
 	$variables_array = array(
 		'site_url' => site_url(),
 	);
@@ -110,11 +112,16 @@ add_filter( 'nav_menu_css_class', 'ps_menu_classes', 10, 3 );
  * Icon sprite
  */
 function tm_icon($icon, $size, $class = "w-8 h-8" ) {
+	echo tm_get_icon($icon, $size, $class );
+}
+function tm_get_icon($icon, $size, $class = "w-8 h-8" ) {
+	ob_start();
 	?>
 	<svg class="icon <?php echo $class; ?>" viewBox=" 0 0 <?php echo $size . ' ' . $size; ?>" xmlns=http://www.w3.org/2000/svg role="img" >
 		<use xlink:href="<?php echo TM_STATIC; ?>/images/icons.svg#<?php echo $icon; ?>"></use>
 	</svg>
 	<?php
+	return ob_get_clean();
 }
 
 /**
@@ -131,8 +138,8 @@ add_action('tm_header_main_before', 'tm_upper_header');
  */
 function tm_add_main_menu() {
 	?>
-	<div class="bg-gray-100 hidden lg:block">
-	<nav class="header__nav container mx-auto">
+	<div class="header__nav hidden lg:block">
+	<nav class="container mx-auto">
 		<?php
 		wp_nav_menu( array(
 			'sort_column'     => 'menu_order',

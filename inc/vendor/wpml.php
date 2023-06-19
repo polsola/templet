@@ -3,7 +3,7 @@
 /**
  * WPML - Custom language switcher
  */
-function ps_language_switcher( $button = false ) {
+function tm_language_switcher( $button = false ) {
 	if( function_exists('icl_get_languages') && function_exists('tm_icon') ) {
 		$current_lang_code = apply_filters( 'wpml_current_language', NULL );
 		$languages = icl_get_languages('skip_missing=0&orderby=code');
@@ -20,16 +20,15 @@ function ps_language_switcher( $button = false ) {
 		<div class="relative hover:bg-gray-100 dark:hover:bg-slate-700 group cursor-pointer <?php echo $button_css_class; ?>">
 		<div class="flex items-center text-black dark:text-white font-semibold">
 		<?php 
-		tm_icon('globe', 24, 'w-6 h-6 mr-2 dark:text-white');
 		echo $current_lang['native_name'];
 		
-		tm_icon('chevron-down', 24, 'w-6 h-6 ml-2 dark:text-white')
+		tm_icon('chevron-down', 24, 'w-4 h-4 ml-1')
 		?>
 		</div>
 		<?php
 		if(!empty($languages)){
 			?>
-			<ul class="hidden group-hover:block absolute bottom-full left-0 bg-white dark:bg-slate-900 shadow rounded p-2">
+			<ul class="hidden group-hover:block absolute top-full left-0 bg-white dark:bg-slate-900 shadow rounded p-2">
 			<?php foreach($languages as $l){ ?>
 				<li>
 					<a class="block p-2 hover:bg-gray-100 dark:hover:bg-slate-600 rounded" href="<?php echo $l['url']; ?>">

@@ -11,7 +11,7 @@
  */
 require __DIR__ . '/vendor/autoload.php';
 
-define( 'TM_THEME', get_stylesheet_directory_uri() );
+define( 'TM_THEME', get_template_directory_uri() );
 define( 'TM_STATIC', TM_THEME . '/static' );
 
 
@@ -78,7 +78,9 @@ function tm_widgets_init() {
 		'after_title'   => '</h5>',
 	) );
 
-	register_sidebars(4, array(
+	$footer_sidebars = apply_filters('tm_footer_columns', 4);
+
+	register_sidebars($footer_sidebars, array(
 		// translators: Number of current footer.
 		'name'          => 'Footer %d',
 		'id'            => 'sidebar-footer',
@@ -104,12 +106,29 @@ if ( ! isset( $content_width ) ) {
 /**
  * Include Google fonts to front and back (For Gutenberg editor)
  */
+function tm_get_fonts() {
+	$fonts = [
+		[
+			'font' => 'Poppins',
+			'weights' => [400, 700]
+		]
+	];
+	return apply_filters('tm_get_fonts', $fonts);
+}
+
 function tm_favicon_head() {
+	$fonts = tm_get_fonts();
+	if($fonts):
+	$fonts_var = [];
+	foreach($fonts as $font) {
+		$fonts_var[] = 'family=' . str_replace(' ', '+', $font['font']) . ':wght@' . implode(';', $font['weights']);
+	}
 	?>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?<?php echo implode('&', $fonts_var); ?>&display=swap" rel="stylesheet">
 	<?php
+	endif;
 }
 add_action( 'wp_head', 'tm_favicon_head' );
 add_action( 'admin_head', 'tm_favicon_head' );

@@ -488,8 +488,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: relative;
 }
 
-.bottom-full {
-  bottom: 100%;
+.top-full {
+  top: 100%;
 }
 
 .left-0 {
@@ -530,12 +530,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: auto;
 }
 
-.mr-2 {
-  margin-right: 0.5rem;
-}
-
-.ml-2 {
-  margin-left: 0.5rem;
+.ml-1 {
+  margin-left: 0.25rem;
 }
 
 .mb-8 {
@@ -562,24 +558,32 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
 .h-8 {
   height: 2rem;
 }
 
-.h-6 {
-  height: 1.5rem;
+.h-4 {
+  height: 1rem;
 }
 
 .w-full {
   width: 100%;
 }
 
+.w-6 {
+  width: 1.5rem;
+}
+
 .w-8 {
   width: 2rem;
 }
 
-.w-6 {
-  width: 1.5rem;
+.w-4 {
+  width: 1rem;
 }
 
 .flex-grow {
@@ -661,23 +665,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
-.bg-slate-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(51 65 85 / var(--tw-bg-opacity));
-}
-
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-primary {
+  background-color: var(--wp--preset--color--primary);
+}
+
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-
-.bg-primary {
-  background-color: var(--wp--preset--color--primary);
 }
 
 .fill-primary {
@@ -717,8 +716,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.75rem;
 }
 
-.pr-4 {
-  padding-right: 1rem;
+.pl-6 {
+  padding-left: 1.5rem;
 }
 
 .text-center {
@@ -741,11 +740,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .font-bold {
   font-weight: 700;
-}
-
-.text-slate-200 {
-  --tw-text-opacity: 1;
-  color: rgb(226 232 240 / var(--tw-text-opacity));
 }
 
 .text-primary {
@@ -958,15 +952,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: auto;
   width: 100%;
   max-width: 750px;
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
-.footer h4 {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
+.footer__widgets {
+        display: flex;
+        gap: 1rem;
+    }
+
+.footer__widgets__col {
+            flex-grow: 1;
+            flex-shrink: 0;
+            flex-basis: 0;
+        }
 
 .content-area {
   width: 100%;
@@ -1012,56 +1009,112 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: auto;
 }
 
-.post-type-archive-product > main {
+.post-type-archive-product > main, .tax-product_cat > main {
   width: 100%;
 }
 
 @media (min-width: 640px) {
 
-  .post-type-archive-product > main {
+  .post-type-archive-product > main, .tax-product_cat > main {
     max-width: 640px;
   }
 }
 
 @media (min-width: 768px) {
 
-  .post-type-archive-product > main {
+  .post-type-archive-product > main, .tax-product_cat > main {
     max-width: 768px;
   }
 }
 
 @media (min-width: 1024px) {
 
-  .post-type-archive-product > main {
+  .post-type-archive-product > main, .tax-product_cat > main {
     max-width: 1024px;
   }
 }
 
 @media (min-width: 1280px) {
 
-  .post-type-archive-product > main {
+  .post-type-archive-product > main, .tax-product_cat > main {
     max-width: 1280px;
   }
 }
 
 @media (min-width: 1536px) {
 
-  .post-type-archive-product > main {
+  .post-type-archive-product > main, .tax-product_cat > main {
     max-width: 1536px;
   }
 }
 
-.post-type-archive-product > main {
+.post-type-archive-product > main, .tax-product_cat > main {
   margin-left: auto;
   margin-right: auto;
   display: grid;
   gap: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
         grid-template-columns: 300px 1fr;
 }
 
-.post-type-archive-product > main .sidebar {
+.post-type-archive-product > main .sidebar, .tax-product_cat > main .sidebar {
             order: -1;
         }
+
+.sidebar .widget > div {
+  padding: 1rem;
+}
+
+.sidebar .wp-block-woocommerce-product-categories {
+  margin-bottom: 0px;
+}
+
+.sidebar .wp-block-woocommerce-product-categories > .wc-block-product-categories-list-item a {
+  display: block;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.sidebar .wp-block-woocommerce-product-categories > .wc-block-product-categories-list > .wc-block-product-categories-list-item > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.sidebar .wp-block-woocommerce-product-categories > .wc-block-product-categories-list > .wc-block-product-categories-list-item > a:after {
+                        content: '';
+                        background: url('../images/icons/chevron-down.svg') no-repeat center/contain;
+                        display: block;
+                        height: 1rem;
+                        width: 1rem;
+                        --tw-rotate: -90deg;
+                        transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+                    }
+
+.sidebar .wp-block-woocommerce-product-categories > .wc-block-product-categories-list > .wc-block-product-categories-list-item.is-open > a:after {
+  --tw-rotate: 0deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.sidebar .wp-block-woocommerce-product-categories > .wc-block-product-categories-list > .wc-block-product-categories-list-item .wc-block-product-categories-list {
+  display: none;
+}
+
+.sidebar .wp-block-woocommerce-product-categories > .wc-block-product-categories-list > .wc-block-product-categories-list-item .wc-block-product-categories-list > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.125rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.125rem * var(--tw-space-y-reverse));
+}
+
+.sidebar .wp-block-woocommerce-product-categories > .wc-block-product-categories-list > .wc-block-product-categories-list-item .wc-block-product-categories-list li a {
+  display: block;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
 
 /*
 
@@ -1121,10 +1174,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:col-span-4 {
     grid-column: span 4 / span 4;
-  }
-
-  .md\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .md\:grid-cols-2 {

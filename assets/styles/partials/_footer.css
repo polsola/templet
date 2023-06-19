@@ -1,5 +1,11 @@
 .footer {
-    h4 {
-        @apply text-white;
+    &__widgets {
+        display: flex;
+        gap: 1rem;
+        &__col {
+            flex-grow: 1;
+            flex-shrink: 0;
+            flex-basis: 0;
+        }
     }
 }

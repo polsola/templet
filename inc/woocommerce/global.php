@@ -17,6 +17,19 @@ if ( ! class_exists( 'woocommerce' ) ) {
 }
 
 /**
+ * Enqueue ecommerce scripts and styles.
+ */
+function tm_ecommerce_scripts() {
+	$theme   = wp_get_theme();
+	$version = $theme->get( 'Version' );
+
+	wp_register_script( 'ecommerce', TM_STATIC . '/scripts/ecommerce.js', null, $version, true );
+	wp_enqueue_script( 'ecommerce' );
+
+}
+add_action( 'wp_enqueue_scripts', 'tm_ecommerce_scripts', 0 );
+
+/**
  * Add WooCommerce support for theme
  */
 function tm_woocommerce_support() {
@@ -45,24 +58,6 @@ function tm_ecommerce_header_items() {
 add_action('tm_header_main', 'tm_ecommerce_header_items');
 
 
-
-/**
- * Get container class for WooCommerce pages
- */
-function tm_get_container_class() {
-	$css_class = array();
-
-	if ( is_product() ) {
-		$css_class[] = 'large-12';
-	} else {
-		$css_class[] = 'large-8';
-	}
-
-	$css_class[] = 'cell';
-
-	return implode( $css_class, ' ' );
-}
-
 /**
  * Change number or products per row to 3
  */
@@ -79,7 +74,7 @@ function ps_remove_sidebar_product_pages() {
 		remove_action( 'woocommerce_sidebar','woocommerce_get_sidebar',10 );
 	}
 }
-add_action( 'wp', 'ps_remove_sidebar_product_pages' );
+//add_action( 'wp', 'ps_remove_sidebar_product_pages' );
 
 /**
  * Change number and rows of related products

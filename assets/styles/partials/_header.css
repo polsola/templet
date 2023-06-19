@@ -31,5 +31,5 @@
 }
 
 .search-form {
-	@apply border border-gray-300 w-full max-w-[750px] mx-auto;
+	@apply w-full max-w-[750px] mx-auto;
 }

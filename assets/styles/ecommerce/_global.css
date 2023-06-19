@@ -2,12 +2,55 @@
     @apply container mx-auto;
 }
 
-.post-type-archive-product {
+.post-type-archive-product,
+.tax-product_cat {
     > main {
-        @apply container mx-auto grid gap-8;
+        @apply container mx-auto grid gap-8 py-8;
         grid-template-columns: 300px 1fr;
         .sidebar {
             order: -1;
+        }
+    }
+}
+
+.sidebar {
+    .widget {
+        > div {
+            @apply p-4;
+        }
+    }
+    .wp-block-woocommerce-product-categories {
+        @apply mb-0;
+         > .wc-block-product-categories-list {
+            &-item {
+                a {
+                    @apply block py-2;
+                }
+            }
+            > .wc-block-product-categories-list-item {
+                > a {
+                    @apply flex items-center justify-between py-2;
+                    &:after {
+                        content: '';
+                        background: url('../images/icons/chevron-down.svg') no-repeat center/contain;
+                        @apply block w-4 h-4 -rotate-90;
+                    }
+                }
+                &.is-open {
+                    > a:after {
+                        @apply rotate-0;
+                    }
+                }
+                .wc-block-product-categories-list {
+                    @apply space-y-0.5 hidden;
+                    li {
+                        a {
+                            @apply block p-2 text-sm;
+                        }
+                    }
+                }
+                
+            }
         }
     }
 }

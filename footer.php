@@ -16,13 +16,15 @@
 				</main>
 				<?php get_template_part('template-parts/footer/off-canvas'); ?>
 				<?php do_action( 'tm_before_footer' ); ?>
-				<footer class="footer bg-slate-700 text-slate-200">
+				<footer class="footer">
 					<div class="footer__widgets container mx-auto py-4 px-4">
-						<div class="grid md:grid-cols-4">
-							<?php for ( $i = 1; $i <= 4; $i++ ) : ?>
-								<?php dynamic_sidebar( 'Footer ' . $i ); ?>
-							<?php endfor; ?>
+						<?php 
+						$footer_sidebars = apply_filters('tm_footer_columns', 4);
+						for ( $i = 1; $i <= $footer_sidebars; $i++ ) : ?>
+						<div class="footer__widgets__col">
+							<?php dynamic_sidebar( 'Footer ' . $i ); ?>
 						</div>
+						<?php endfor; ?>
 					</div>
 					<div class="footer__credits container mx-auto py-4 px-4">
 						<div class="grid gap-4 md:grid-cols-2 text-sm items-center">
