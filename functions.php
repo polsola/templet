@@ -26,11 +26,19 @@ function tm_init() {
 
 	if ( is_admin() ) {
 		require_once 'inc/backend.php';
-	} else {
-		require_once 'inc/frontend.php';
 	}
 }
 add_action( 'init', 'tm_init' );
+
+/**
+ * Frontend stuff
+ */
+require_once 'inc/frontend.php';
+
+/**
+ * ACF configuration
+ */
+require_once 'inc/vendor/acf.php';
 
 /**
  * After setup theme

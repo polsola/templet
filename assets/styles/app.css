@@ -10,6 +10,8 @@
 @import "partials/_header";
 @import "partials/_footer";
 
+@import "helpers/_gutenberg";
+
 @import "ecommerce/_global";
 
 /*

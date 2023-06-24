@@ -154,3 +154,17 @@ function tm_add_main_menu() {
 	<?php
 }
 add_action('tm_header_main_after', 'tm_add_main_menu');
+
+/**
+ * Add footer credits
+ */
+function tm_add_website_credits() {
+	?>
+	<p class="footer__credits__text md:text-right">
+		© <?php echo esc_html( date( 'Y' ) ); ?> 
+		<?php esc_html_e( 'All rights reserved', 'templet' ); ?>. 
+		<?php printf(__( 'Website created by %s', 'templet' ), '<a class="text-primary" href="https://www.utrans.global" title="Utrans" target="_blank">Utrans</a>'); ?>
+	</p>
+	<?php
+}
+add_action('tm_footer_credits', 'tm_add_website_credits', 20);

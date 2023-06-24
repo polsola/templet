@@ -3,11 +3,13 @@
 }
 
 .post-type-archive-product,
-.tax-product_cat {
+.tax-product_cat,
+.tax-pa_marca,
+.single-product {
     > main {
-        @apply container mx-auto grid gap-8 py-8;
-        grid-template-columns: 300px 1fr;
+        @apply container mx-auto grid grid-cols-1 gap-8 py-8 lg:grid-cols-[300px_1fr];
         .sidebar {
+            @apply hidden lg:block;
             order: -1;
         }
     }

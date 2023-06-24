@@ -8,7 +8,7 @@
     "start": "gulp serve",
     "styles": "gulp styles",
     "scripts": "gulp scripts",
-    "localize": "gulp localize",
+    "localize": "wp i18n make-pot . languages/templet.pot --exclude=node_modules,vendor",
     "icons": "gulp icons"
   },
   "author": "Pol Solà",

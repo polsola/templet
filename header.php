@@ -28,7 +28,7 @@
 				<div class="lg:hidden">
 					<?php get_template_part('template-parts/header/mobile-toggle'); ?>
 				</div>
-				<a href="<?php echo esc_url( site_url() ); ?>" title="<?php bloginfo( 'title' ); ?>" class="header__brand"><?php bloginfo( 'title' ); ?></a>
+				<a href="<?php echo get_home_url(); ?>" title="<?php bloginfo( 'title' ); ?>" class="header__brand"><?php bloginfo( 'title' ); ?></a>
 				<div id="header__main__search" class="header__main__search col-span-3 md:col-span-4 lg:col-span-0 order-last lg:order-[inherit] w-full py-2 flex-grow flex flex-col justify-center lg:px-2">
 					<?php get_search_form( true ); ?>
 				</div>

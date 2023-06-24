@@ -17,7 +17,7 @@ function tm_language_switcher( $button = false ) {
 		$button_css_class = $button ? 'px-6 py-3 rounded-full border-2 border-gray-300' : 'p-2 rounded';
 
 		?>
-		<div class="relative hover:bg-gray-100 dark:hover:bg-slate-700 group cursor-pointer <?php echo $button_css_class; ?>">
+		<div class="wpml-lang-switcher relative hover:bg-gray-100 dark:hover:bg-slate-700 group cursor-pointer <?php echo $button_css_class; ?>">
 		<div class="flex items-center text-black dark:text-white font-semibold">
 		<?php 
 		echo $current_lang['native_name'];

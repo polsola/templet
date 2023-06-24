@@ -38,11 +38,7 @@
 									)
 								);
 								?>
-							<p class="footer__credits__text md:text-right">
-								© <?php echo esc_html( date( 'Y' ) ); ?> 
-								<?php esc_html_e( 'All rights reserved', 'templet' ); ?>. 
-								<?php printf(__( 'Website created by %s', 'templet' ), '<a class="text-primary" href="https://www.utrans.global" title="Utrans" target="_blank">Utrans</a>'); ?>
-							</p>
+							<?php do_action( 'tm_footer_credits' ); ?>
 						</div>
 					</div>
 				</footer>
