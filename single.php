@@ -14,26 +14,17 @@ get_header(); ?>
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-<main class="section">
-	<div class="grid-container grid-container-padded">
-		<div class="grid-x">
-			<div class="large-8 large-offset-2 cell">
-				<article <?php post_class(); ?>>
-					
-					<div class="single__thumbnail"> 
-						<?php the_post_thumbnail( array( 1100, 420 ) ); ?>
-					</div>
-					
-					<?php the_content(); ?>
-					<footer class="single__footer">
-						<p class="single__footer__tags"><?php the_tags( __( 'Tags', 'templet' ) . ': ' , ' ' ); ?></p>
-					</footer>
-				</article>
-			</div>
-		</div>
+<article <?php post_class('max-w-4xl mx-auto my-8'); ?>>
+	<h1 class="mb-8"><?php the_title(); ?></h1>
+	<div class="single__thumbnail"> 
+		<?php the_post_thumbnail( 'large',  [
+			'class' => 'mb-8'
+		]); ?>
 	</div>
-</main>
+	<div class="single-post__content">
+		<?php the_content(); ?>
+	</div>
+</article>
 
-<?php endwhile;
-endif; ?>
+<?php endwhile; endif; ?>
 <?php get_footer();

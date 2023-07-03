@@ -530,12 +530,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: auto;
 }
 
-.ml-1 {
-  margin-left: 0.25rem;
-}
-
 .mb-8 {
   margin-bottom: 2rem;
+}
+
+.ml-1 {
+  margin-left: 0.25rem;
 }
 
 .block {
@@ -584,6 +584,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-4 {
   width: 1rem;
+}
+
+.max-w-4xl {
+  max-width: 56rem;
 }
 
 .flex-grow {
@@ -636,6 +640,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   gap: 0.5rem;
 }
 
+.gap-8 {
+  gap: 2rem;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -677,10 +685,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-
-.fill-primary {
-  fill: var(--wp--preset--color--primary);
 }
 
 .p-4 {
@@ -960,6 +964,31 @@ Ensure the default browser behavior of the `hidden` attribute.
             flex-shrink: 0;
             flex-basis: 0;
         }
+
+.single-post__content p, .single-post__content h2, .single-post__content h3, .single-post__content h4 {
+  margin-bottom: 1rem;
+}
+
+.single-post__content ol, .single-post__content ul {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.single-post__content ol {
+  list-style-type: decimal;
+}
+
+.single-post__content ul {
+  list-style-type: disc;
+}
+
+.single-post__content a {
+            color: var(--wp--preset--color--primary);
+        }
+
+.single-post__content a:hover {
+                text-decoration: underline;
+            }
 
 @media (min-width: 640px) {
     .uagb-container-inner-blocks-wrap {

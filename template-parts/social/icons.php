@@ -10,7 +10,7 @@ $social = [
     <?php foreach($social as $icon => $url): ?>
         <li class="social__item">
             <a class="block" href="<?php echo $url; ?>" target="_blank" rel="nofollow" title="<?php ucfirst($icon); ?>">
-				<?php tm_icon($icon, 'w-6 h-6 fill-primary'); ?>
+				<?php tm_icon($icon, 24, 'w-6 h-6'); ?>
             </a>
         </li>
     <?php endforeach; ?>

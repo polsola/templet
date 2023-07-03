@@ -1,0 +1,22 @@
+.single-post {
+    &__content {
+        p, h2, h3, h4 {
+            @apply mb-4;
+        }
+        ol, ul {
+            @apply ml-4 mb-4;
+        }
+        ol {
+            @apply list-decimal;
+        }
+        ul {
+            @apply list-disc;
+        }
+        a {
+            color: var(--wp--preset--color--primary);
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

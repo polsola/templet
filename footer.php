@@ -26,6 +26,7 @@
 						</div>
 						<?php endfor; ?>
 					</div>
+					<?php do_action( 'tm_footer' ); ?>
 					<div class="footer__credits container mx-auto py-4 px-4">
 						<div class="grid gap-4 md:grid-cols-2 text-sm items-center">
 							<?php
