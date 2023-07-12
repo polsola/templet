@@ -6,7 +6,7 @@
 function tm_acf_json_save_point( $path ) {
 
 	// update path
-	$path = get_template_directory() . '/inc/vendor/acf';
+	$path = get_stylesheet_directory() . '/inc/vendor/acf';
 
 	// return
 	return $path;
@@ -22,7 +22,7 @@ function tm_acf_json_load_point( $paths ) {
 	// remove original path (optional)
 	unset($paths[0]);
 	// append path
-	$paths[] = get_template_directory() . '/inc/vendor/acf';
+	$paths[] = get_stylesheet_directory() . '/inc/vendor/acf';
 
 	// return
 	return $paths;

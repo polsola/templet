@@ -124,6 +124,9 @@ function tm_get_fonts() {
 	return apply_filters('tm_get_fonts', $fonts);
 }
 
+/**
+ * Add Google font
+ */
 function tm_favicon_head() {
 	$fonts = tm_get_fonts();
 	if($fonts):
@@ -140,6 +143,18 @@ function tm_favicon_head() {
 }
 add_action( 'wp_head', 'tm_favicon_head' );
 add_action( 'admin_head', 'tm_favicon_head' );
+
+/**
+ * Social links
+ */
+function tm_get_social_links() {
+	$social = [
+		'twitter' => '#',
+		'linkedin' => '#',
+		'youtube' => ''
+	];
+	return apply_filters('tm_get_social_links', $social);
+}
 
 /**
  * WooCommerce file
