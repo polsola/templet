@@ -10,7 +10,7 @@ $count = $cart->cart_contents_count;
 				<span class="header__main__item__icon__count bg-primary rounded-full absolute -bottom-2 -right-2 w-6 h-6 grid place-items-center"><?php echo esc_html( $count ); ?></span>
 			<?php } ?>
 			</div>
-		<span class="header__main__item__label">
+		<span class="header__main__item__label hidden lg:block">
 			<?php echo $cart->get_cart_total(); ?>
 		</span>
 	</a>

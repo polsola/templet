@@ -512,6 +512,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   grid-column: span 3 / span 3;
 }
 
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
 .clear-both {
   clear: both;
 }
@@ -604,8 +608,12 @@ Ensure the default browser behavior of the `hidden` attribute.
           appearance: none;
 }
 
-.grid-cols-\[100px_1fr_100px\] {
-  grid-template-columns: 100px 1fr 100px;
+.grid-cols-\[64px_minmax\(0\2c _1fr\)_64px\] {
+  grid-template-columns: 64px minmax(0, 1fr) 64px;
+}
+
+.grid-cols-\[72px_minmax\(0\2c _1fr\)_72px\] {
+  grid-template-columns: 72px minmax(0, 1fr) 72px;
 }
 
 .flex-col {
@@ -1247,6 +1255,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:col-span-4 {
     grid-column: span 4 / span 4;
+  }
+
+  .md\:block {
+    display: block;
   }
 
   .md\:grid-cols-2 {

@@ -24,7 +24,7 @@
 		<?php do_action( 'tm_before_header' ); ?>
 		<header id="header" class="header shadow">
 			<?php do_action( 'tm_header_main_before' ); ?>
-			<div class="header__main p-4 container mx-auto grid grid-cols-[100px_1fr_100px] gap-4 items-center lg:flex ">
+			<div class="header__main p-4 container mx-auto grid grid-cols-[72px_minmax(0,_1fr)_72px] gap-4 items-center lg:flex ">
 				<div class="lg:hidden">
 					<?php get_template_part('template-parts/header/mobile-toggle'); ?>
 				</div>

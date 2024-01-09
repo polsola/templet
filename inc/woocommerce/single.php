@@ -17,5 +17,6 @@ remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_pr
 
 function tm_add_product_description() {
 	get_template_part( 'template-parts/ecommerce/single/description' );
+	do_action('tm_after_product_description');
 }
 add_action('woocommerce_after_single_product_summary', 'tm_add_product_description', 12);
