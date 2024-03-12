@@ -512,10 +512,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   grid-column: span 3 / span 3;
 }
 
-.col-span-2 {
-  grid-column: span 2 / span 2;
-}
-
 .clear-both {
   clear: both;
 }
@@ -538,8 +534,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 2rem;
 }
 
+.mb-0 {
+  margin-bottom: 0px;
+}
+
 .ml-1 {
   margin-left: 0.25rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
 }
 
 .block {
@@ -560,6 +564,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .hidden {
   display: none;
+}
+
+.aspect-\[4\/3\] {
+  aspect-ratio: 4 / 3;
 }
 
 .h-6 {
@@ -608,10 +616,6 @@ Ensure the default browser behavior of the `hidden` attribute.
           appearance: none;
 }
 
-.grid-cols-\[64px_minmax\(0\2c _1fr\)_64px\] {
-  grid-template-columns: 64px minmax(0, 1fr) 64px;
-}
-
 .grid-cols-\[72px_minmax\(0\2c _1fr\)_72px\] {
   grid-template-columns: 72px minmax(0, 1fr) 72px;
 }
@@ -650,6 +654,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-12 {
+  gap: 3rem;
 }
 
 .overflow-hidden {
@@ -695,6 +703,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .p-4 {
   padding: 1rem;
 }
@@ -718,6 +731,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.5rem;
 }
 
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -737,13 +755,19 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: var(--wp--preset--font-size--small);
 }
 
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
+.text-xl {
+  font-size: var(--wp--preset--font-size--x-large);
+}
+
+.text-base {
+  font-size: var(--wp--preset--font-size--medium);
+}
+
+.font-medium {
+  font-weight: 500;
 }
 
 .font-semibold {
@@ -924,10 +948,23 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.button {
+  display: inline-block;
+  border-radius: 9999px;
+  background-color: var(--wp--preset--color--primary);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-align: center;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+    border-width: 0 !important;
+}
+
 .header__brand {
   display: block;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+  font-size: var(--wp--preset--font-size--large);
   font-weight: 700;
 }
 
@@ -972,6 +1009,38 @@ Ensure the default browser behavior of the `hidden` attribute.
             flex-shrink: 0;
             flex-basis: 0;
         }
+
+.pagination {
+  display: inline-flex;
+}
+
+.pagination > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-x-reverse: 0;
+  border-right-width: calc(1px * var(--tw-divide-x-reverse));
+  border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
+  --tw-divide-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-divide-opacity));
+}
+
+.pagination {
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+
+.pagination .page-numbers {
+  display: grid;
+  height: 2rem;
+  width: 2rem;
+  place-items: center;
+}
+
+.pagination .page-numbers.current {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
 
 .single-post__content p, .single-post__content h2, .single-post__content h3, .single-post__content h4 {
   margin-bottom: 1rem;
@@ -1193,8 +1262,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 .sidebar .wp-block-woocommerce-product-categories > .wc-block-product-categories-list > .wc-block-product-categories-list-item .wc-block-product-categories-list li a {
   display: block;
   padding: 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: var(--wp--preset--font-size--small);
 }
 
 /*
@@ -1257,12 +1325,16 @@ Ensure the default browser behavior of the `hidden` attribute.
     grid-column: span 4 / span 4;
   }
 
-  .md\:block {
-    display: block;
-  }
-
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
+  .md\:items-center {
+    align-items: center;
   }
 
   .md\:justify-start {

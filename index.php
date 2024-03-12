@@ -10,10 +10,16 @@
  * @version 1.0
  */
 
-get_header(); ?>
+get_header(); 
+
+$paged = get_query_var('paged');
+?>
 <section class="section">
 	<div class="container mx-auto">
-		<h1 class="text-center my-8"><?php single_post_title(); ?></h1>
+		<h1 class="text-center my-8">
+			<?php single_post_title(); ?>
+			<?php echo $paged ? ' - ' . sprintf(__('Page %s', 'templet'), $paged) : ''; ?>
+		</h1>
 		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				<?php get_template_part( 'template-parts/content/post' ); ?>

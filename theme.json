@@ -74,7 +74,7 @@
             "fluid": true,
             "fontFamilies" : [
                 {
-                    "fontFamily": "Poppins",
+                    "fontFamily": "Poppins, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif",
                     "slug": "poppins",
                     "name": "Poppins"
                 }
@@ -83,7 +83,7 @@
     },
     "styles": {
         "typography": {
-            "fontFamily": "Poppins"
+            "fontFamily": "var(--wp--preset--font-family--poppins)"
         },
         "elements": {
             "link": {

@@ -6,10 +6,12 @@
 
 @import "components/_mobile-navigation";
 @import "components/_off-canvas";
+@import "components/_button";
 
 @import "partials/_header";
 @import "partials/_footer";
 
+@import "layouts/_blog";
 @import "layouts/_post";
 
 @import "helpers/_gutenberg";

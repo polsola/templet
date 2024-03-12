@@ -1,0 +1,9 @@
+.pagination {
+    @apply inline-flex border border-black divide-x divide-black;
+    .page-numbers {
+        @apply w-8 h-8 grid place-items-center;
+        &.current {
+            @apply bg-black text-white;
+        }
+    }
+}

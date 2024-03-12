@@ -53,13 +53,13 @@ function tm_pagination() {
 
 	if ( is_array( $pages ) ) {
 		$paged = ( get_query_var( 'paged' ) === 0 ) ? 1 : get_query_var( 'paged' );
-		echo '<ul class="pagination text-center" role="navigation" aria-label="Pagination">';
+		echo '<div class="flex justify-center my-8"><ul class="pagination" role="navigation" aria-label="Pagination">';
 
 		foreach ( $pages as $page ) {
 
 			echo '<li>' . $page . '</li>';
 		}
-		echo '</ul>';
+		echo '</ul></div>';
 	}
 }
 

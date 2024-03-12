@@ -34,7 +34,7 @@
 									'sort_column'     => 'menu_order',
 									'container'       => 'nav',
 									'container_class' => 'footer__credits__nav',
-									'menu_class'      => 'flex justify-center items-center md:justify-start gap-2',
+									'menu_class'      => 'flex flex-col md:flex-row justify-center md:items-center md:justify-start gap-2',
 									'theme_location'  => 'footer'
 									)
 								);
