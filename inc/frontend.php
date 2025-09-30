@@ -124,6 +124,19 @@ function tm_get_icon($icon, $size, $class = "w-8 h-8" ) {
 	return ob_get_clean();
 }
 
+function tm_add_icon_to_dropdown_menu_item($item_output, $item, $depth, $args) {
+
+	// Check if the item has children
+	if (in_array('menu-item-has-children', $item->classes)) {
+		$icon = tm_get_icon('chevron-down', 24, 'w-4 h-4 fill-header-accent ml-1'); // Added ml-1 for spacing
+		// Append the icon to the link text
+		$item_output = preg_replace('/(<a.*?>[^<]+)(<\\/a>)/', '$1 ' . $icon . '$2', $item_output);
+	}
+
+	return $item_output;
+}
+add_filter('walker_nav_menu_start_el', 'tm_add_icon_to_dropdown_menu_item', 10, 4);
+
 /**
  * Before main header
  */
@@ -131,29 +144,6 @@ function tm_upper_header() {
 	get_template_part( 'template-parts/header/upper' );
 }
 add_action('tm_header_main_before', 'tm_upper_header');
-
-
-/**
- * Add main menu
- */
-function tm_add_main_menu() {
-	?>
-	<div class="header__nav hidden lg:block">
-	<nav class="container mx-auto">
-		<?php
-		wp_nav_menu( array(
-			'sort_column'     => 'menu_order',
-			'container'       => false,
-			'menu_class'      => 'menu',
-			'theme_location'  => 'primary',
-			)
-		);
-		?>
-	</nav>
-	</div>
-	<?php
-}
-add_action('tm_header_main_after', 'tm_add_main_menu');
 
 /**
  * Add footer credits

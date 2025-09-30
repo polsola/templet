@@ -29,10 +29,26 @@
 					<?php get_template_part('template-parts/header/mobile-toggle'); ?>
 				</div>
 				<a href="<?php echo get_home_url(); ?>" title="<?php bloginfo( 'title' ); ?>" class="header__brand"><?php bloginfo( 'title' ); ?></a>
-				<div id="header__main__search" class="header__main__search col-span-3 md:col-span-4 lg:col-span-0 order-last lg:order-[inherit] w-full py-2 flex-grow flex flex-col justify-center lg:px-2">
-					<?php get_search_form( true ); ?>
+				<div class="grow flex justify-end items-center gap-4">
+					<nav class="header__nav flex items-center">
+						<?php
+						wp_nav_menu( array(
+							'sort_column'     => 'menu_order',
+							'container'       => false,
+							'menu_class'      => 'menu',
+							'theme_location'  => 'primary',
+							)
+						);
+						?>
+					</nav>
+					<a class="button" href="#"><?php _e('Contact us', 'templet'); ?></a>
+					<button class="header__search__toggle"><?php tm_icon('search', 24, 'w-5 h-5'); ?></button>
+					<?php do_action( 'tm_header_main' ); ?>
 				</div>
-				<?php do_action( 'tm_header_main' ); ?>
+			</div>
+			<div id="header-search" class="header__search">
+				<?php get_search_form(); ?>
+				<button class="header__search__close bg-secondary"><?php tm_icon('close', 24, 'w-8 h-8'); ?></button>
 			</div>
 			<?php do_action( 'tm_header_main_after' ); ?>
 		</header>

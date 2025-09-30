@@ -1,6 +1,6 @@
 var project     = 'templet', 
     domain      = 'templet',
-    url         = 'localhost';
+    url         = 'localhost.local';
 
 const gulp          = require('gulp');
 const browserSync   = require('browser-sync').create();

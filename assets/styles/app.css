@@ -1,41 +1,27 @@
-@import "tailwindcss/base";
+@import 'tailwindcss';
 
-@import "tailwindcss/components";
+@theme {  
+	--color-primary: var(--wp--preset--color--primary);
+	--color-primary-light: var(--wp--preset--color--primary-light);
+	--color-secondary: var(--wp--preset--color--secondary);
+	--font-serif: var(--wp--preset--font-family--libre-baskerville);
+	--font-oswald: var(--wp--preset--font-family--oswald);
+	--text-xl: var(--wp--preset--font-size--x-large);
+	--text-2xl: var(--wp--preset--font-size--2-x-large);
+	--text-3xl: var(--wp--preset--font-size--3-x-large);
+	--text-4xl: var(--wp--preset--font-size--4-x-large);
+}
 
-@import "tailwindcss/utilities";
+@import './components/_mobile-navigation.css' layer(utilities);
+@import './components/_off-canvas.css' layer(utilities);
+@import './components/_button.css' layer(utilities);
 
-@import "components/_mobile-navigation";
-@import "components/_off-canvas";
-@import "components/_button";
+@import './partials/_header.css' layer(utilities);
+@import './partials/_footer.css' layer(utilities);
 
-@import "partials/_header";
-@import "partials/_footer";
+@import './layouts/_blog.css' layer(utilities);
+@import './layouts/_post.css' layer(utilities);
 
-@import "layouts/_blog";
-@import "layouts/_post";
+@import './helpers/_gutenberg.css' layer(utilities);
 
-@import "helpers/_gutenberg";
-
-@import "ecommerce/_global";
-
-/*
-
-@import 'templet/variables';
-
-@import 'templet/layout/header';
-@import 'templet/layout/footer';
-@import 'templet/layout/type';
-@import 'templet/layout/page-header';
-@import 'templet/layout/off-canvas';
-@import 'templet/layout/single';
-
-@import 'templet/module/loop';
-@import 'templet/module/section';
-@import 'templet/module/comments';
-@import 'templet/module/share';
-@import 'templet/module/widget';
-@import 'templet/module/type';
-
-@import 'templet/vendor/contact-form';
-@import 'templet/vendor/woocommerce';
-*/
+@import './ecommerce/_global.css' layer(utilities);
