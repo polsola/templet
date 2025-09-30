@@ -11,6 +11,9 @@
 get_header(); ?>
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+	<?php if ( ! get_field( 'hide_page_title' ) ) : ?>
+		<?php get_template_part( 'template-parts/header/page-header' ); ?>
+	<?php endif; ?>
 	<?php the_content(); ?>
 	<?php wp_link_pages(); ?>
 <?php endwhile; ?>

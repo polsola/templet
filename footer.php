@@ -15,18 +15,18 @@
 ?>
 				</main>
 				<?php get_template_part('template-parts/footer/off-canvas'); ?>
-				<?php do_action( 'tm_before_footer' ); ?>
+				<?php do_action( 'u_before_footer' ); ?>
 				<footer class="footer">
 					<div class="footer__widgets container mx-auto py-4 px-4">
 						<?php 
-						$footer_sidebars = apply_filters('tm_footer_columns', 4);
+						$footer_sidebars = apply_filters('u_footer_columns', 4);
 						for ( $i = 1; $i <= $footer_sidebars; $i++ ) : ?>
 						<div class="footer__widgets__col">
 							<?php dynamic_sidebar( 'Footer ' . $i ); ?>
 						</div>
 						<?php endfor; ?>
 					</div>
-					<?php do_action( 'tm_footer' ); ?>
+					<?php do_action( 'u_footer' ); ?>
 					<div class="footer__credits container mx-auto py-4 px-4">
 						<div class="grid gap-4 md:grid-cols-2 text-sm items-center">
 							<?php
@@ -39,7 +39,7 @@
 									)
 								);
 								?>
-							<?php do_action( 'tm_footer_credits' ); ?>
+							<?php do_action( 'u_footer_credits' ); ?>
 						</div>
 					</div>
 				</footer>

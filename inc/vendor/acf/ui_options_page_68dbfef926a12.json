@@ -1,0 +1,26 @@
+{
+    "key": "ui_options_page_68dbfef926a12",
+    "title": "Theme Options",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Theme Options",
+    "menu_slug": "theme-options",
+    "parent_slug": "none",
+    "advanced_configuration": 0,
+    "icon_url": "",
+    "menu_title": "",
+    "position": "",
+    "redirect": 0,
+    "description": "",
+    "menu_icon": {
+        "type": "dashicons",
+        "value": "dashicons-admin-generic"
+    },
+    "update_button": "Actualizar",
+    "updated_message": "Opciones Actualizadas",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1759248145
+}

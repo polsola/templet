@@ -1,7 +1,7 @@
 
 /* Menu */
 
-.mobile__bg {
+.off-canvas {
     @apply bg-primary fixed top-0 left-0 w-full h-screen flex flex-col p-4;
     z-index: 1000;
     color: #fff;
@@ -9,44 +9,29 @@
     transition: opacity 0.5s;
     visibility: hidden;
     justify-content: center;
-    &__nav {
-      text-align: center;
-      text-transform: uppercase;
-  
-      &__main {
-        list-style: none;
-        padding: 0;
-        font: 700 32px "Montserrat";
+    .off-canvas__nav {
         li {
-          margin-bottom: 20px;
           a {
             color: #fff;
+						@apply flex gap-2 items-center justify-between py-4;
           }
         }
-      }
     }
-    .social-links {
-      justify-content: center;
-      li {
-      }
-      a {
-        padding: 0.75rem;
-        color: $white;
-        font-size: 1.4rem;
-      }
-      svg {
-        fill: $white;
-      }
-    }
-    &--open {
+    &.off-canvas--open {
       visibility: visible;
       opacity: 1;
     }
-    .mobile__nav__icon {
+    .off-canvas__icon {
         span,
         span:before,
         span:after {
             @apply bg-white;
         }
     }
+}
+
+.admin-bar {
+	.off-canvas {
+		padding-top: calc( var(--admin-bar-offset) + 1rem );
+	}
 }

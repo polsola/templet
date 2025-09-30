@@ -12,12 +12,12 @@
 /**
  * Enqueue scripts and styles.
  */
-function tm_scripts() {
+function u_scripts() {
 	$theme   = wp_get_theme();
 	$version = $theme->get( 'Version' );
-	wp_enqueue_style( 'app', TM_STATIC . '/styles/app.css' );
+	wp_enqueue_style( 'app', u_STATIC . '/styles/app.css' );
 
-	wp_register_script( 'app', TM_STATIC . '/scripts/app.js', null, $version, true );
+	wp_register_script( 'app', u_STATIC . '/scripts/app.js', null, $version, true );
 	$variables_array = array(
 		'site_url' => site_url(),
 	);
@@ -25,7 +25,7 @@ function tm_scripts() {
 	wp_enqueue_script( 'app' );
 
 }
-add_action( 'wp_enqueue_scripts', 'tm_scripts', 0 );
+add_action( 'wp_enqueue_scripts', 'u_scripts', 0 );
 
 /**
  * Custom pagination
@@ -34,7 +34,7 @@ add_action( 'wp_enqueue_scripts', 'tm_scripts', 0 );
  *
  * @link http://foundation.zurb.com/sites/docs/pagination.html
  */
-function tm_pagination() {
+function u_pagination() {
 
 	global $wp_query;
 	$big = 999999999; // need an unlikely integer.
@@ -72,7 +72,7 @@ function tm_pagination() {
  * @param array $items Menu items.
  * @param array $args Menu args.
  */
-function tm_append_nav_menu_items( $items, $args ) {
+function u_append_nav_menu_items( $items, $args ) {
 
 	$menu = 'primary';
 
@@ -84,7 +84,7 @@ function tm_append_nav_menu_items( $items, $args ) {
 	}
 	return $items;
 }
-//add_filter( 'wp_nav_menu_items', 'tm_append_nav_menu_items', 10, 2 );
+//add_filter( 'wp_nav_menu_items', 'u_append_nav_menu_items', 10, 2 );
 
 /**
  * Hook the WP menu class to add BEM classes
@@ -111,44 +111,44 @@ add_filter( 'nav_menu_css_class', 'ps_menu_classes', 10, 3 );
 /**
  * Icon sprite
  */
-function tm_icon($icon, $size, $class = "w-8 h-8" ) {
-	echo tm_get_icon($icon, $size, $class );
+function u_icon($icon, $size, $class = "w-8 h-8" ) {
+	echo u_get_icon($icon, $size, $class );
 }
-function tm_get_icon($icon, $size, $class = "w-8 h-8" ) {
+function u_get_icon($icon, $size, $class = "w-8 h-8" ) {
 	ob_start();
 	?>
 	<svg class="icon <?php echo $class; ?>" viewBox=" 0 0 <?php echo $size . ' ' . $size; ?>" xmlns=http://www.w3.org/2000/svg role="img" >
-		<use xlink:href="<?php echo TM_STATIC; ?>/images/icons.svg#<?php echo $icon; ?>"></use>
+		<use xlink:href="<?php echo u_STATIC; ?>/images/icons.svg#<?php echo $icon; ?>"></use>
 	</svg>
 	<?php
 	return ob_get_clean();
 }
 
-function tm_add_icon_to_dropdown_menu_item($item_output, $item, $depth, $args) {
+function u_add_icon_to_dropdown_menu_item($item_output, $item, $depth, $args) {
 
 	// Check if the item has children
 	if (in_array('menu-item-has-children', $item->classes)) {
-		$icon = tm_get_icon('chevron-down', 24, 'w-4 h-4 fill-header-accent ml-1'); // Added ml-1 for spacing
+		$icon = u_get_icon('chevron-down', 24, 'w-4 h-4 fill-current ml-1'); // Added ml-1 for spacing
 		// Append the icon to the link text
 		$item_output = preg_replace('/(<a.*?>[^<]+)(<\\/a>)/', '$1 ' . $icon . '$2', $item_output);
 	}
 
 	return $item_output;
 }
-add_filter('walker_nav_menu_start_el', 'tm_add_icon_to_dropdown_menu_item', 10, 4);
+add_filter('walker_nav_menu_start_el', 'u_add_icon_to_dropdown_menu_item', 10, 4);
 
 /**
  * Before main header
  */
-function tm_upper_header() {
+function u_upper_header() {
 	get_template_part( 'template-parts/header/upper' );
 }
-add_action('tm_header_main_before', 'tm_upper_header');
+add_action('u_header_main_before', 'u_upper_header');
 
 /**
  * Add footer credits
  */
-function tm_add_website_credits() {
+function u_add_website_credits() {
 	?>
 	<p class="footer__credits__text md:text-right">
 		© <?php echo esc_html( date( 'Y' ) ); ?> 
@@ -157,4 +157,16 @@ function tm_add_website_credits() {
 	</p>
 	<?php
 }
-add_action('tm_footer_credits', 'tm_add_website_credits', 20);
+add_action('u_footer_credits', 'u_add_website_credits', 20);
+
+function u_get_contact_page_url() {
+	if( !function_exists('get_field') ) {
+		return '#';
+	}
+	$contact_page_id = get_field( 'contact_page', 'option' );
+	if ( $contact_page_id ) {
+		return get_permalink( $contact_page_id );
+	} else {
+		return '#';
+	}
+}

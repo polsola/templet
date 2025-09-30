@@ -1,14 +1,14 @@
 /* Icon */
 .mobile__nav__icon {
-    --mobile-icon-height: 4px;
-    --mobile-icon-spacing: -10px;
+    --mobile-icon-height: 2px;
+    --mobile-icon-spacing: -8px;
   display: block;
   position: relative;
   overflow: hidden;
   margin: 0;
   padding: 0;
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
   font-size: 0;
   text-indent: -9999px;
   appearance: none;
@@ -24,12 +24,12 @@
   span {
     display: block;
     position: absolute;
-    top: 17px;
+    top: 12px;
     left: 0;
-    width: 32px;
-    right: 20px;
+    width: 24px;
+    right: 10px;
     height: var(--mobile-icon-height);
-    @apply bg-primary;
+    @apply bg-black;
     transition: background 0s 0.3s;
     border-radius: 2px;
     &:before,
@@ -39,7 +39,7 @@
       left: 0;
       width: 100%;
       height: var(--mobile-icon-height);
-      @apply bg-primary;
+      @apply bg-black;
       content: "";
       border-radius: 2px;
       transition-duration: 0.3s, 0.3s;

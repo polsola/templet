@@ -16,7 +16,7 @@
  * @param string $url The url to share.
  * @param string $text Optional text to add to the shared publication.
  */
-function tm_share( $type, $url, $text = '' ) {
+function u_share( $type, $url, $text = '' ) {
 	$share_url = '#';
 
 	switch ( $type ) {
@@ -56,9 +56,9 @@ function tm_share( $type, $url, $text = '' ) {
 /**
  * Add share buttons to wp_footer for single pages
  */
-function tm_add_share_footer() {
+function u_add_share_footer() {
 	if ( is_single() ) :
 		get_template_part( 'template-parts/share' );
 	endif;
 }
-add_action( 'wp_footer', 'tm_add_share_footer' );
+add_action( 'wp_footer', 'u_add_share_footer' );

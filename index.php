@@ -26,6 +26,6 @@ $paged = get_query_var('paged');
 			<?php endwhile; endif; ?>
 		</div>
 	</div>
-	<?php tm_pagination(); ?>
+	<?php u_pagination(); ?>
 </section>
 <?php get_footer(); ?>

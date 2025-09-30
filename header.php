@@ -21,16 +21,13 @@
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
-		<?php do_action( 'tm_before_header' ); ?>
+		<?php do_action( 'u_before_header' ); ?>
 		<header id="header" class="header shadow">
-			<?php do_action( 'tm_header_main_before' ); ?>
-			<div class="header__main p-4 container mx-auto grid grid-cols-[72px_minmax(0,_1fr)_72px] gap-4 items-center lg:flex ">
-				<div class="lg:hidden">
-					<?php get_template_part('template-parts/header/mobile-toggle'); ?>
-				</div>
+			<?php do_action( 'u_header_main_before' ); ?>
+			<div class="header__main p-4 container mx-auto gap-4 items-center flex">
 				<a href="<?php echo get_home_url(); ?>" title="<?php bloginfo( 'title' ); ?>" class="header__brand"><?php bloginfo( 'title' ); ?></a>
 				<div class="grow flex justify-end items-center gap-4">
-					<nav class="header__nav flex items-center">
+					<nav class="header__nav hidden lg:flex items-center">
 						<?php
 						wp_nav_menu( array(
 							'sort_column'     => 'menu_order',
@@ -40,17 +37,20 @@
 							)
 						);
 						?>
+						<a class="button" href="<?php echo u_get_contact_page_url(); ?>"><?php _e('Contact us', 'templet'); ?></a>
 					</nav>
-					<a class="button" href="#"><?php _e('Contact us', 'templet'); ?></a>
-					<button class="header__search__toggle"><?php tm_icon('search', 24, 'w-5 h-5'); ?></button>
-					<?php do_action( 'tm_header_main' ); ?>
+					<button class="header__search__toggle"><?php u_icon('search', 24, 'w-5 h-5'); ?></button>
+					<div class="lg:hidden">
+						<?php get_template_part('template-parts/header/mobile-toggle'); ?>
+					</div>
+					<?php do_action( 'u_header_main' ); ?>
 				</div>
 			</div>
 			<div id="header-search" class="header__search">
 				<?php get_search_form(); ?>
-				<button class="header__search__close bg-secondary"><?php tm_icon('close', 24, 'w-8 h-8'); ?></button>
+				<button class="header__search__close bg-secondary"><?php u_icon('close', 24, 'w-8 h-8'); ?></button>
 			</div>
-			<?php do_action( 'tm_header_main_after' ); ?>
+			<?php do_action( 'u_header_main_after' ); ?>
 		</header>
-		<?php do_action( 'tm_after_header' ); ?>
+		<?php do_action( 'u_after_header' ); ?>
 		<main>

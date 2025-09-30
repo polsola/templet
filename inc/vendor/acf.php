@@ -3,7 +3,7 @@
 /**
  * Set path to store ACF json fields
  */
-function tm_acf_json_save_point( $path ) {
+function u_acf_json_save_point( $path ) {
 
 	// update path
 	$path = get_stylesheet_directory() . '/inc/vendor/acf';
@@ -12,12 +12,12 @@ function tm_acf_json_save_point( $path ) {
 	return $path;
 
 }
-add_filter('acf/settings/save_json', 'tm_acf_json_save_point');
+add_filter('acf/settings/save_json', 'u_acf_json_save_point');
 
 /**
  * Set path to load ACF json fields
  */
-function tm_acf_json_load_point( $paths ) {
+function u_acf_json_load_point( $paths ) {
 
 	// remove original path (optional)
 	unset($paths[0]);
@@ -28,4 +28,4 @@ function tm_acf_json_load_point( $paths ) {
 	return $paths;
 
 }
-add_filter('acf/settings/load_json', 'tm_acf_json_load_point');
+add_filter('acf/settings/load_json', 'u_acf_json_load_point');

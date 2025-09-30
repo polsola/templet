@@ -15,11 +15,11 @@ function toggleClassToArray(array, cssClass, action) {
 for (let index = 0; index < mobileToggles.length; index++) {
 	const button = mobileToggles[index];
 	button.addEventListener("click", function() {
-		if( offCanvas.classList.contains('mobile__bg--open') ) {
-			offCanvas.classList.remove('mobile__bg--open');
+		if( offCanvas.classList.contains('off-canvas--open') ) {
+			offCanvas.classList.remove('off-canvas--open');
 			toggleClassToArray(mobileToggles, 'is-active', false);
 		} else {
-			offCanvas.classList.add('mobile__bg--open');
+			offCanvas.classList.add('off-canvas--open');
 			toggleClassToArray(mobileToggles, 'is-active', true);
 		}
 	});

@@ -10,14 +10,14 @@
  * @version 1.0
  */
 
-define( 'TM_THEME', get_template_directory_uri() );
-define( 'TM_STATIC', TM_THEME . '/static' );
+define( 'u_THEME', get_template_directory_uri() );
+define( 'u_STATIC', u_THEME . '/static' );
 
 
 /**
  * Theme init
  */
-function tm_init() {
+function u_init() {
 
 	require_once 'inc/login.php';
 	require_once 'inc/vendor/wpml.php';
@@ -27,7 +27,7 @@ function tm_init() {
 		require_once 'inc/backend.php';
 	}
 }
-add_action( 'init', 'tm_init' );
+add_action( 'init', 'u_init' );
 
 /**
  * Frontend stuff
@@ -42,7 +42,7 @@ require_once 'inc/vendor/acf.php';
 /**
  * After setup theme
  */
-function tm_setup() {
+function u_setup() {
 	load_theme_textdomain( 'templet', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
@@ -67,14 +67,14 @@ function tm_setup() {
 		'caption',
 	) );
 }
-add_action( 'after_setup_theme', 'tm_setup' );
+add_action( 'after_setup_theme', 'u_setup' );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function tm_widgets_init() {
+function u_widgets_init() {
 	register_sidebar( array(
 		'name'          => 'Sidebar',
 		'id'            => 'sidebar-blog',
@@ -85,7 +85,7 @@ function tm_widgets_init() {
 		'after_title'   => '</h5>',
 	) );
 
-	$footer_sidebars = apply_filters('tm_footer_columns', 4);
+	$footer_sidebars = apply_filters('u_footer_columns', 4);
 
 	register_sidebars($footer_sidebars, array(
 		// translators: Number of current footer.
@@ -99,7 +99,7 @@ function tm_widgets_init() {
 	) );
 
 }
-add_action( 'widgets_init', 'tm_widgets_init' );
+add_action( 'widgets_init', 'u_widgets_init' );
 
 /**
  * Set default Content Width
@@ -113,21 +113,21 @@ if ( ! isset( $content_width ) ) {
 /**
  * Include Google fonts to front and back (For Gutenberg editor)
  */
-function tm_get_fonts() {
+function u_get_fonts() {
 	$fonts = [
 		[
 			'font' => 'Poppins',
 			'weights' => [400, 700]
 		]
 	];
-	return apply_filters('tm_get_fonts', $fonts);
+	return apply_filters('u_get_fonts', $fonts);
 }
 
 /**
  * Add Google font
  */
-function tm_favicon_head() {
-	$fonts = tm_get_fonts();
+function u_favicon_head() {
+	$fonts = u_get_fonts();
 	if($fonts):
 	$fonts_var = [];
 	foreach($fonts as $font) {
@@ -140,19 +140,19 @@ function tm_favicon_head() {
 	<?php
 	endif;
 }
-add_action( 'wp_head', 'tm_favicon_head' );
-add_action( 'admin_head', 'tm_favicon_head' );
+add_action( 'wp_head', 'u_favicon_head' );
+add_action( 'admin_head', 'u_favicon_head' );
 
 /**
  * Social links
  */
-function tm_get_social_links() {
+function u_get_social_links() {
 	$social = [
 		'twitter' => '#',
 		'linkedin' => '#',
 		'youtube' => ''
 	];
-	return apply_filters('tm_get_social_links', $social);
+	return apply_filters('u_get_social_links', $social);
 }
 
 /**

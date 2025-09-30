@@ -5,6 +5,7 @@
 
 @media screen and (min-width: 783px) {
 	:root {
+		--header-height: 108px;
 		--admin-bar-offset: 32px;
 	}
 }

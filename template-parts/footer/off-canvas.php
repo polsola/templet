@@ -1,4 +1,4 @@
-<div class="mobile__bg" id="off-canvas">
+<div class="off-canvas" id="off-canvas">
 	<?php get_template_part('template-parts/header/mobile-toggle'); ?>
     <!-- Header nav -->
     <nav class="off-canvas__nav flex-grow">

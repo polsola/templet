@@ -12,15 +12,15 @@
 /**
  * Remove css files from common plugins we don't use
  */
-function tm_deregister_styles() {
+function u_deregister_styles() {
 	wp_deregister_style( 'contact-form-7' );
 }
-add_action( 'wp_print_styles', 'tm_deregister_styles', 100 );
+add_action( 'wp_print_styles', 'u_deregister_styles', 100 );
 
 /**
  * Dequeue scripts and styles if no contact form is used
  */
-function tm_remove_recaptcha_from_pages() {
+function u_remove_recaptcha_from_pages() {
 	global $post;
 	if ( !isset( $post->post_content ) || !has_shortcode( $post->post_content, 'contact-form-7' ) ) {
 		// there is no wpcf7 form on this page so remove all the wpcf7 scripts
@@ -32,4 +32,4 @@ function tm_remove_recaptcha_from_pages() {
 		
 	}
 }
-add_action( 'wp_enqueue_scripts', 'tm_remove_recaptcha_from_pages', 1 );
+add_action( 'wp_enqueue_scripts', 'u_remove_recaptcha_from_pages', 1 );

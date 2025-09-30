@@ -3,8 +3,8 @@
 /**
  * WPML - Custom language switcher
  */
-function tm_language_switcher( $button = false ) {
-	if( function_exists('icl_get_languages') && function_exists('tm_icon') ) {
+function u_language_switcher( $button = false ) {
+	if( function_exists('icl_get_languages') && function_exists('u_icon') ) {
 		$current_lang_code = apply_filters( 'wpml_current_language', NULL );
 		$languages = icl_get_languages('skip_missing=0&orderby=code');
 
@@ -14,15 +14,15 @@ function tm_language_switcher( $button = false ) {
 
 		if( !$current_lang ) return;
 
-		$button_css_class = $button ? 'px-6 py-3 rounded-full border-2 border-gray-300' : 'p-2 rounded';
+		$button_css_class = $button ? 'px-6 py-3 rounded-full border-2 border-gray-300' : '';
 
 		?>
 		<div class="wpml-lang-switcher relative hover:bg-gray-100 dark:hover:bg-slate-700 group cursor-pointer <?php echo $button_css_class; ?>">
-		<div class="flex items-center text-black dark:text-white font-semibold">
+		<div class="flex items-center text-black dark:text-white font-semibold gap-2">
 		<?php 
+		u_icon('globe', 24, 'w-5 h-5');
 		echo $current_lang['native_name'];
-		
-		tm_icon('chevron-down', 24, 'w-4 h-4 ml-1')
+		u_icon('chevron-down', 24, 'w-4 h-4')
 		?>
 		</div>
 		<?php
@@ -45,6 +45,11 @@ function tm_language_switcher( $button = false ) {
 		<?php
 	} 
 }
+
+function u_add_lang_switch_to_upper() {
+	u_language_switcher();
+}
+add_action('u_header_upper', 'u_add_lang_switch_to_upper');
 
 /**
  * WPML - Prevent loading useless styles
